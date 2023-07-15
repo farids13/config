@@ -1,0 +1,270 @@
+//05-07-2023
+
+======== Properties =========
+-- loyalty_service
+mp.messaging.incoming.ar-reward-voucher.topic=${namespace}-ar-reward-voucher
+mp.messaging.incoming.ar-reward-voucher.value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+mp.messaging.incoming.ar-reward-voucher.connector=smallrye-kafka
+mp.messaging.incoming.ar-reward-voucher.failure-strategy=dead-letter-queue
+mp.messaging.incoming.ar-reward-voucher.dead-letter-queue.topic=${namespace}-ar-reward-voucher-dlq
+
+-- survey-service
+
+-- Isi Id All Subscriber Customer group Prod
+tag.all.subscriber.id=8d01b542-0a55-4c28-ba54-d4f29f5bb305
+
+================= DDL =================
+
+-- core-service 
+@Index(name = "idx_notification_type", columnList = "type")
+
+
+-- event_schema
+--tokenHistory
+@Column(name = "cart_id", length = 36)
+    public String cartId;
+
+
+-- loyalty_schema
+ @Index(name = "idx_membership_tier_history_created_at", columnList = "created_at"),
+    @Index(name = "idx_membership_tier_history_tier_id", columnList = "tier_id"),
+    @Index(name = "idx_membership_tier_history_tier_id_membership_id", columnList = "tier_id, membership_id")
+
+@Column(name = "is_ar", columnDefinition = "bool default false")
+    public Boolean isAr = false;
+
+-- Kodingan pending 
+-- Memberexternal Service line 301
+  //  enhancement Valid to With Expired Days
+                    LocalDateTime originalValidTo = vh.voucher.validTo;
+                    LocalDateTime updatedAt = vh.updatedAt != null ? vh.updatedAt.toInstant().atZone(ZoneId.of("GMT+7")).toLocalDateTime() : null;
+                    LocalDateTime claimedAt = vh.claimedAt != null ? vh.claimedAt : updatedAt;
+                    System.out.println(claimedAt);
+                    if(claimedAt != null){
+                        vh.voucher.validTo = claimedAt.plusDays(vh.voucher.expiredDays);
+                        if(claimedAt.plusDays(vh.voucher.expiredDays).isAfter(originalValidTo))
+                            vh.voucher.validTo = originalValidTo;
+                    }
+
+
+-- survey_schema
+
+-- Jangan lupa Bikin BranchSetup di Survey
+
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('MCQ', 'Multiple Choice Question');
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('SCQ', 'Single Choice Question');
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('LSQ', 'Likert Scale Question');
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('SAQ', 'Short Answer Question');
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('LAQ', 'Long Answer Question');
+INSERT INTO survey_schema.survey_question_type
+(survey_question_type_code, survey_question_type_name)
+VALUES('NPSQ', 'NPS Question');
+
+================ KONG ===============
+
+-- core-service
+
+Name : core-backoffice-getDropdownNotificationByType-route
+Route : OPTION, GET
+Path : /api/v1/core/backoffice/notification/dropdown$
+
+
+--event_service
+
+Name : event-backoffice-getListEventForPoslite-route
+Route : OPTION, GET
+Path : /api/v1/event/backoffice/token/pos/list/event$
+
+--survey_service
+
+Name : survey-backoffice-getInsertSurvey-route
+Route : OPTION, POST
+Path : /api/v1/backoffice/survey/insert
+
+Name : survey-backoffice-getUpdateSurvey-route
+Route : OPTION, PUT
+Path : /api/v1/backoffice/survey/update/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-getDetail-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/detail/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-countHistoryCompletion-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/history/completion/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+-- General_survey 
+
+Name : survey-backoffice-getListGeneralSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/general/survey$
+
+Name : survey-backoffice-getDetailGeneralSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/general/survey/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-insertGeneralSurvey-route
+Route : OPTION, POST
+Path : /api/v1/backoffice/general/survey$
+
+Name : survey-backoffice-updateGeneralSurvey-route
+Route : OPTION, PUT
+Path : /api/v1/backoffice/general/survey/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-updateGeneralSurvey-route
+Route : OPTION, PUT
+Path : /api/v1/backoffice/general/survey/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-exportGetListHistoryGeneralSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/export/general/survey/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-getListHistoryGeneralSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/general/survey/history/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-getCountCompletionGeneralSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/general/survey/completion/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+-- General_survey Apps
+
+Name : survey-GetListQuestionSurvey-route
+Route : OPTION, GET
+Path : /api/v1/general/survey$
+
+Name : survey-addAnswerQuestion-route
+Route : OPTION, POST
+Path : /api/v1/general/survey/answer$
+
+Name : survey-updateAllAnswerQuestion-route
+Route : OPTION, PUT
+Path : /api/v1/general/survey$
+
+------->change to public kong mas angen<--------
+
+Name : public-survey-GetListQuestionSurvey-route
+Route : OPTION, GET
+Path : /api/v1/general/survey$
+
+Name : public-survey-addAnswerQuestion-route
+Route : OPTION, POST
+Path : /api/v1/general/survey/answer$
+
+Name : public-survey-updateAllAnswerQuestion-route
+Route : OPTION, PUT
+Path : /api/v1/general/survey$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 09-06-2023 ///
+
+-- Core - Service
+// ========= DDL =========
+BEGIN;
+ALTER TABLE core_schema.notification ADD created_by varchar(255) NULL;
+ALTER TABLE core_schema.notification ADD read_button varchar(255) NULL;
+ALTER TABLE core_schema.notification ADD updated_by varchar(255) NULL;
+ALTER TABLE core_schema.notification ADD url_thumbnail varchar(255) NULL;
+COMMIT;
+
+- Loyalty - Service 
+
+// =========== DDL ==============
+
+
+--query sync last_transaction_at from membership_transaction
+BEGIN;
+update loyalty_schema.membership as m 
+set last_transaction_at = (
+	select max(created_at)
+	from loyalty_schema.membership_transaction mt 
+	where mt.membership_id = m.id
+)
+COMMIT;
+
+// ========== Kong =============
+
+// ========= Properties
+
+- User - Service
+
+// =========== DDL ==============
+-- tag
+BEGIN;
+CREATE INDEX idx_tag_disabled_at ON user_schema.tag USING btree (disabled_at);
+CREATE INDEX idx_tag_is_auto_source_data ON user_schema.tag USING btree (is_auto, source_data);
+CREATE INDEX idx_tag_source_data ON user_schema.tag USING btree (source_data);
+CREATE INDEX idx_tag_status ON user_schema.tag USING btree (status);
+COMMIT;
+
+// ========== Kong =============
+
+// ========= Properties
+
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-scheduler</artifactId>
+</dependency>
+
+
+============= DDL ===============
+
+
+
+
+============= KONG =====================
+
+--notification service
+Name : notification-backoffice-getHistoryCountNotification-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/inbox/(?<notificationId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$

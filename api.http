@@ -1,0 +1,370 @@
+### arief 6283842455250 ERTSOTAY
+### dadik 6281122223333
+### james 628119999888
+### farid 62895358496255 has dob
+### lucky 6289676754922
+### cantona 6285770736557
+### tio 6285722604554
+### josua 62852858888
+# 6281122334455
+
+###
+curl -X 'POST' \
+  'https://fooma.labstech.asia/api/v1/otp/requestOtp' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "62895358496256",
+  "action": "LOGIN",
+  "deviceId": "29bb623e-ede9-4d24-9123-870d779a13fd",
+  "verificationMethod": "WHATSAPP"
+}'
+###
+curl -X 'POST' \
+  'https://fooma.labstech.asia/api/v1/auth/signIn' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "62895358496256",
+  "otp": "1111",
+  "deviceId": "29bb623e-ede9-4d24-9123-870d779a13fd",
+  "deviceType": "SM-A525F",
+  "deviceLocation": "RR4Q+5W Cikini, Central Jakarta City, Jakarta",
+  "source": "TPC"
+}'
+
+### Get Token Backoffice Dev
+curl -X 'POST' \
+  'https://backoffice.labstech.asia/api/v1/auth/socialSignIn' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "channelToken": "ya29.a0AbVbY6MltvubqXx6PthasitDeO64oEJGOloyrwPaeKqSwr8XLufzvZz_TdXkqTGvQxRXrNj9F8EI6mxBZthFJvjKlLSMoeNz_vMbTS3MPmPcl3o1VCx72eQqVAQrkIIhweEgN6dckb610NBItcc3UGG62zAbxUYaCgYKAcISARMSFQFWKvPlMqKDW1U09u2WufdgZkXJHw0166",
+  "channelUid": "117140085867593142381",
+  "channelType": "GOOGLE",
+  "deviceId": "bd6dc194-260e-41ff-ac64-9beb5544fdbb",
+  "deviceType": "SM-A525F",
+  "deviceLocation": "RR4Q+5W Cikini, Central Jakarta City, Jakarta"
+}'
+
+
+//prod
+###
+curl -X 'POST' \
+  'https://fooma.co.id/api/v1/otp/requestOtp' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "62895358496255",
+  "action": "LOGIN",
+  "deviceId": "29bb623e-ede9-4d24-9123-870d779a13fd",
+  "verificationMethod": "WHATSAPP"
+}'
+###
+curl -X 'POST' \
+  'https://fooma.co.id/api/v1/auth/signIn' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "62895358496255",
+  "otp": "3412",
+  "deviceId": "29bb623e-ede9-4d24-9123-870d779a13fd",
+  "deviceType": "SM-A525F",
+  "deviceLocation": "RR4Q+5W Cikini, Central Jakarta City, Jakarta",
+  "source": "TPC"
+}'
+
+
+### //Post Token
+curl -X 'POST' \
+  'https://pos.labstech.asia/api/outlet/v1/auth/signInWithPin' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "group": "Cloud Kitchen",
+  "pin": "14045",
+  "deviceId": "29bb623e-ede9-4d24-9123-870d779a13fd",
+  "deviceType": "SM-A525F",
+  "deviceLocation": "RR4Q+5W Cikini, Central Jakarta City, Jakarta",
+  "outletId": 64
+}'
+
+###
+curl -X 'POST' \
+  'https://fooma.labstech.asia/api/v1/order/payment' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer wBDCEJ1BdqCFTWq1SzmXWIRWcEuwYrVT' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "voucherProgramIds": [
+    "b696a64e-012e-44cb-9317-99b3fd3efdd1"
+  ],
+  "useCoin": false,
+  "phoneNumber": "+6285722604554",
+  "paymentMethodID": "ovo",
+  "transId": "868675788664696d696a6f67636d6c6c6d"
+}'
+
+###
+curl -X 'POST' \
+  'http://localhost:8083/api/v1/backoffice/voucher' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "voucherId": "testcustomergroupkost",
+  "voucherName": "Get Voucher Game",
+  "rewardBaseOn": "PERCENTAGE",
+  "amount": 100,
+  "voucherType": "TRANSACTION",
+  "voucherQuota": 100000,
+  "maxDiscount": 10000,
+  "transactionType": "DELIVERY",
+  "minTransaction": 20000,
+  "used": "ONCE",
+  "expiredDays": 60,
+  "validFrom": "2023-02-10T12:15:50",
+  "imageUrl": "www.google.com/image",
+  "qty": 10,
+  "details": "You can get Voucher",
+  "termsAndConditions": "You Must Install Foomaa Apps",
+  "eVoucher": true,
+  "isRedeemItem": true,
+  "howToUse": "Can Use This",
+  "autoApply": false,
+  "status": "ACTIVE",
+  "brands": [
+
+  ],
+  "outlets": [
+
+  ],
+  "categoryOutlets": [
+
+  ],
+  "categoryGroups": [
+ 
+  ],
+  "products": [
+    "6c606e85-367d-4cea-b11b-9a6d8b57c75e"
+  ],
+  "categoryGenerals": [
+ 
+  ],
+  "customerGroups": [
+   "169679ff-d5c0-48b8-9c5d-cc4e27475bc6"
+  ],
+  "tiers": [
+ 
+  ]
+}'
+
+###
+curl -X 'GET' \
+  'http://localhost:8083/api/v1/backoffice/redeem/dropdown/voucher' \
+  -H 'accept: application/json'
+
+###
+curl -X 'POST' \
+  'http://localhost:8083/api/v1/backoffice/redeem' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "voucherId": "69b27a92-6a89-4543-b2ba-507e07a8cca7",
+  "voucherCode": "HAPPY",
+  "coinCost": 20000,
+  "qty": 10,
+  "periodeFrom": "2023-12-31 12:00:00",
+  "periodeTo": "2023-12-31 12:00:00",
+  "excludeCustomerGroups": [
+    
+  ],
+  "status": "ACTIVE"
+}'
+
+###
+curl -X 'GET' \
+  'http://localhost:8083/api/v1/loyalty/rewards' \
+  -H 'accept: application/json'
+
+###
+curl -X 'POST' \
+  'http://localhost:8082/api/v1/backoffice/tag/userGenerated' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "gender": "F",
+  "search": "",
+  "limit": 10,
+  "pageIndex": 0
+}'
+
+###
+curl -X 'POST' \
+  'http://localhost:8082/api/v1/backoffice/tag/addCustomer' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "tagId": "6197db4a-3365-4f14-aa90-70b8685ec9ae",
+  "userIds": [
+    "1e1c92e9-569a-4ffe-a679-c65cfcf40684",
+    "1e1c92e9-569a-4ffe-a679-c65cfcf40684"
+  ]
+}'
+
+###
+curl -X 'GET' \
+  'http://localhost:8082/api/v1/backoffice/tag/customerList/6197db4a-3365-4f14-aa90-70b8685ec9ae?limit=10&orderBy=createdAt&pageIndex=0&sortBy=asc' \
+  -H 'accept: application/json'
+
+###
+curl -X 'PUT' \
+  'http://localhost:8082/api/v1/backoffice/tag/6197db4a-3365-4f14-aa90-70b8685ec9ae' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "groupName": "Clubbers",
+  "groupDescription": "Group customer update for events",
+  "status": "active",
+  "sourceData": "upload",
+  "idUrl": "c09cc34c-5f44-4042-9440-a01beb8d4f99",
+  "generateGroup": {
+    "gender" : "M"
+  }
+}'
+
+
+###
+curl -X 'GET' \
+  'http://localhost:8083/api/v1/loyalty/evoucher' \
+  -H 'accept: application/json'
+
+###
+curl -X 'GET' \
+  'https://fooma.labstech.asia/api/v1/loyalty/evoucher/inPayment' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer kBBcrQHFeSFzrKuOJpil4yRoJw32asnY'
+
+###
+curl -X 'POST' \
+  'http://localhost:8083/api/v1/backoffice/voucher' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "voucherId": "ABC11231",
+  "voucherName": "Get Voucher Game",
+  "rewardBaseOn": "PERCENTAGE",
+  "amount": 50,
+  "voucherType": "TRANSACTION",
+  "voucherQuota": 100000,
+  "maxDiscount": 10000,
+  "transactionType": "DELIVERY",
+  "minTransaction": 20000,
+  "used": "ONCE",
+  "expiredDays": 60,
+  "validFrom": "2022-03-10T12:15:50",
+  "imageUrl": "www.google.com/image",
+  "qty": 100000,
+  "details": "You can get Voucher",
+  "termsAndConditions": "You Must Install Foomaa Apps",
+  "eVoucher": true,
+  "isRedeemItem": false,
+  "howToUse": "Can Use This",
+  "autoApply": false,
+  "status": "ACTIVE"
+}'
+
+###
+curl -X 'PUT' \
+  'http://localhost:8083/api/v1/backoffice/voucher/9b4f2f4a-df3c-4a52-be9a-d7fd5c65739e' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "voucherId": "ABC1233",
+  "voucherName": "Get Voucher Game",
+  "rewardBaseOn": "PERCENTAGE",
+  "amount": 50,
+  "voucherType": "TRANSACTION",
+  "voucherQuota": 100000,
+  "maxDiscount": 10000,
+  "transactionType": "DELIVERY",
+  "minTransaction": 20000,
+  "used": "ONCE",
+  "expiredDays": 60,
+  "validFrom": "2022-03-10T12:15:50",
+  "imageUrl": "www.google.com/image",
+  "qty": 500000,
+  "details": "You can get Voucher",
+  "termsAndConditions": "You Must Install Foomaa Apps",
+  "eVoucher": true,
+  "isRedeemItem": false,
+  "howToUse": "Can Use This",
+  "autoApply": false,
+  "status": "ACTIVE"
+}'
+
+###
+curl -X 'POST' \
+  'http://localhost:8084/api/v1/backoffice/mission' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "missionName": "Misi Menyelamatkan Dunia",
+  "missionType": "SEASONAL_MISSION",
+  "missionStructure": "SEQUENCE_MISSION",
+  "validFrom": "2022-12-31 12:00:00",
+  "validTo": "2022-12-31 12:00:00",
+  "expiredDays": 90,
+  "imageUrl": "www.google.com/image",
+  "howToPlay": "Selamatkan Sei Sapi Di Tpc",
+  "termsAndConditions": "Makan Sei Sapi Pake Sendok",
+  "description": "Mission Description",
+  "transactionType": "DINE_IN",
+  "rewardType": "NO_REWARD",
+  "rewardTypeValue": "1 Cup Coffe",
+  "status": "ACTIVE",
+  "bufferTime": 0,
+  "customerGroups": [
+    {
+      "id": "b04006de-d4af-4f2c-b825-27ad56383653",
+      "name": "All Group Generate"
+    },
+    {
+      "id": "64e8d2f9-9e14-4103-92aa-50c7583ebc49",
+      "name": "All Age"
+    }
+  ],
+  "customerTiers": [
+    {
+      "id": "b04006de-d4af-4f2c-b825-27ad56383653",
+      "name": "Basic"
+    },
+    {
+      "id": "fe2931d5-7ab5-4c2a-8d6f-e460b4e56888",
+      "name": "Silver"
+    }
+  ],
+  "excludeCustomerGroups": [
+    {
+      "id": "f6c2fcc2-4f80-4225-b581-e7b500e84c6f",
+      "name": "All Group Generate"
+    },
+    {
+      "id": "64e8d2f9-9e14-4103-92aa-50c7583ebc49",
+      "name": "All Age"
+    }
+  ],
+  "taskIds": [
+    "c719c0a8-7f82-4cbb-a979-738170fb6841"
+  ]
+}'
+
+
+###
+curl -X 'GET' \
+  'https://backoffice.labstech.asia/api/v1/event/backoffice/token?limit=10&orderBy=createdAt&pageIndex=0&sortBy=asc' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer 66F5ZV6BaqpmZ8pTxrvQrUxYUvKRORgg'
+
+
+###
+curl -X POST  -H "accept:application/json, text/plain, */*" -H "content-type:application/json" -H "cache-control:no-store" -H "responsetype:application/json" -H "authorization:Bearer sJPeSN3PdD49ER3X08SXYiW4kC3O9MZj" -H "x-fooma-ua:{"os":"ios","osver":"16.4","model":"iphone 14","appname":"fooma dev","appversion":"1.0.72","brand":"apple","appbundle":"id.co.fooma.dev","freestorage":28364169216,"ram":17179869184,"istablet":false,"deviceuniqueid":"725103b7-1e73-951d-f96a-93d66ca94149","deviceidgenerator":"bbd0b0bd-ba65-d9af-c469-4b1e7c67146f","devicemodel":"unknown","isemulator":true,"abis":["arm64e"]}" https://fooma.labstech.asia/api/v1/order/event -d '{"eventId":"abf41cfa-54ad-479e-b13a-f40d269d386a","eventName":"WE THE FEST 2023","tokenId":"9587571f-6a55-48c2-a3a7-7a4f7f5885a2","tokenName":"WE THE FEST 2023","priceToken":50000,"brandId":184,"brandName":"Sek Fan","brandLogo":"https://assets.labstech.asia/files/3bb19ebe-ce49-435d-97f7-10c209b23b4d","outletId":69,"outletName":"Tenant 3","outletCode":"LG098","outletImage":"https://assets.labstech.asia/files/10e66a1a-5de3-4df7-a8db-b3074d7f45e2","transactionTypeValue":"takeAwayEvent","platfrom":"ios","menuTemplateId":"05ba2770-f128-4f92-a062-b1e13d6be739","billNumber":"","additionalInformation":"","salesModeId":"0c7a7f39-d30f-4168-aaab-278153743ca6","salesModeName":"Pickup - WTF Testing","orderItems":[{"menuCategoryId":"185c7f49-65f2-4424-a039-0565708eb82a","menuCategory":"Beers","menuCategoryDetailId":"185c7f49-65f2-4424-a039-0565708eb82a","menuCategoryDetail":"Beers","menuId":"28bb898d-4f86-42dd-b172-b8e50869cf0e","menuName":"Heneiken","productDetail":"Heneiken","productImgUrl":"https://assets.labstech.asia/files/0c89bf97-1eca-4933-83e9-66092f9488dc","productHasVariant":false,"productOutletPrice":50000,"originalPriceItem":50000,"qty":1,"variants":[],"note":"","uniqueId":"82bccf25-ff9c-61f1-9ee2-ddd1a5249109"}]}'
