@@ -1,5 +1,8 @@
 //05-07-2023
 
+=== user id gua  = b82f89a7-6dc5-43b7-9f32-f98ae728b5a1
+=== membercode gua = 4HYVDYVC
+
 ======== Properties =========
 -- loyalty_service
 mp.messaging.incoming.ar-reward-voucher.topic=${namespace}-ar-reward-voucher
@@ -10,8 +13,16 @@ mp.messaging.incoming.ar-reward-voucher.dead-letter-queue.topic=${namespace}-ar-
 
 -- survey-service
 
+-- run in dev 
+ALTER TABLE survey_schema.general_survey ALTER COLUMN reward_value TYPE numeric(19, 2) USING reward_value::numeric;
+ALTER TABLE survey_schema.general_survey ALTER COLUMN trigger_value TYPE numeric(19, 2) USING trigger_value::numeric;
+
+
 -- Isi Id All Subscriber Customer group Prod
 tag.all.subscriber.id=8d01b542-0a55-4c28-ba54-d4f29f5bb305
+order.base.url=http://order-service:8080/api
+
+-- JANGAN LUPA MATIKAN COMPLETE TRANSACTION KALAU BELUM TESTED NOTIFICATION NYA JALAN NANTI 
 
 ================= DDL =================
 

@@ -48,7 +48,6 @@ for /L %%i in (1, 1, 999) do (
     )
 )
 :endLoop
-echo Jumlah elemen dalam array: %count%
 
 REM kalau nambah jangan lupa diubah
 set "minChoice=1"
@@ -71,19 +70,20 @@ for /L %%i in (%countMandatoryService% 1 %maxArray%) do (
 @REM set "commands[4]=wt -w 0 -d !home!\ismaya\!s[4]! --title !s[4]! --tabColor #e74c3c cmd /k !run! -Dquarkus.config.locations=../config/!s[4]!/application-dev.properties,..config/!s[4]!/application-test.properties"
 set /a "countMandatoryService-=1"
 
+:start
 echo "=================================================================================="
 echo " ___  ___  __  __  ___ __   __ ___        ___  ___   ___      _  ___   ___  ____TM"
 echo "|_ _|/ __||  \/  |/   \\ \ / //   \      | _ \| _ \ / _ \  _ | || __| / __||_   _|"
 echo " | | \__ \| |\/| || - | \   / | - |      |  _/|   /| (_) || || || _| | (__   | |  "
 echo "|___||___/|_|  |_||_|_|  |_|  |_|_|      |_|  |_|_\ \___/  \__/ |___| \___|  |_|  "
-echo "                                                                                  "
+echo "                                                                               %count% "
 echo "=================================================================================="
-echo \n
-:start
+
 echo ================================== FAST TM ==========================================
 echo [1] Running Semua                          
 echo [2] Running Service Wajib
 echo [3] Running Service Tertentu
+echo [4] Clean Kafka Temp And Fixing 
 echo [q] Capek Om !!!  
 echo ================================== FAST TM ==========================================
 
@@ -98,7 +98,7 @@ if "%choice%"=="q" (
     exit /b
 )
 
-if "%choice%" gtr "3" (
+if "%choice%" gtr "4" (
     echo Ngapain om Kegedaean pilihan lu! %minChoice%-4.
     goto :start
 )
@@ -108,21 +108,22 @@ if "%choice%"=="1" (
     echo Running Semua Om .....
 
     for /L %%i in (%minChoice%,1,%maxArray%) do (
-        start "" cmd /c "!commands[%%i]!"
         timeout 10
+        start "" cmd /c "!commands[%%i]!"
     )
 
-    echo Done Om!!! 
-    goto :start
+    echo Done Om.......!!! 
+    goto :animation
 ) else if "%choice%"=="2" (
     echo Ok!!! Jalankan Serive Wajib Project Ini Om
     echo %countMandatoryService%
     for /L %%i in (%minChoice%,1,%countMandatoryService%) do (
-        start "" cmd /c "!commands[%%i]!"
         timeout 3
+        start "" cmd /c "!commands[%%i]!"
     )
 
-    echo Done Om !!!
+    echo Done Om ...... !!!
+    goto :animation
 ) else if "%choice%"=="3" (
     :menu3
     echo Oke Pilihlah Sesuka Hati
@@ -147,7 +148,7 @@ if "%choice%"=="1" (
         )   
     )
     if "!service!"=="q" (
-        goto :start
+        goto :animation
     )
 
     if "!valid!"=="false" (
@@ -158,10 +159,36 @@ if "%choice%"=="1" (
 
     echo Done Om !! Kembali ke Menu3 :D
     goto :menu3
-) else (
+) else if "%choice%"=="4" (
+    echo Clean Kafka In Folder "C:\tmp"
+    rd /s /q "C:\tmp"
+    :animation
+    echo Done Om ........
+)else (
     echo Ngapain sih OM !!!!!!
     goto :start
 )
+
+
+:animation
+chcp 65001 >nul
+:: Mengatur karakter ASCII art untuk animasi loading
+set "frames=6"
+set "frame[1]=█"
+set "frame[2]=████"
+set "frame[3]=█████████████"
+set "frame[4]=█████████████████████"
+set "frame[5]=██████████████████████████████████████████"
+set "frame[6]=████████████████████████████████████████████████████████████████████████"
+
+set "delay=1"
+for /L %%i in (1,1,%frames%) do (
+    cls
+    echo LOADING !frame[%%i]!
+    python -c "import time; time.sleep(%delay%/10000)"
+)
+
+goto :start
 
 pause
 
