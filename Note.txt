@@ -5,11 +5,7 @@
 
 ======== Properties =========
 -- loyalty_service
-mp.messaging.incoming.ar-reward-voucher.topic=${namespace}-ar-reward-voucher
-mp.messaging.incoming.ar-reward-voucher.value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
-mp.messaging.incoming.ar-reward-voucher.connector=smallrye-kafka
-mp.messaging.incoming.ar-reward-voucher.failure-strategy=dead-letter-queue
-mp.messaging.incoming.ar-reward-voucher.dead-letter-queue.topic=${namespace}-ar-reward-voucher-dlq
+
 
 -- survey-service
 
@@ -21,28 +17,59 @@ ALTER TABLE survey_schema.general_survey ALTER COLUMN trigger_value TYPE numeric
 -- Isi Id All Subscriber Customer group Prod
 tag.all.subscriber.id=8d01b542-0a55-4c28-ba54-d4f29f5bb305
 order.base.url=http://order-service:8080/api
+-- ini base url prod https://survey.fooma.co.id/general-survey
+base.url.notification.general.survey=https://survey.labstech.asia/general-survey
 
 -- JANGAN LUPA MATIKAN COMPLETE TRANSACTION KALAU BELUM TESTED NOTIFICATION NYA JALAN NANTI 
 
 ================= DDL =================
 
 -- core-service 
-@Index(name = "idx_notification_type", columnList = "type")
+BEGIN;
+CREATE INDEX idx_notification_type ON core_schema.notification USING btree (type);
+COMMIT;
 
 
 -- event_schema
---tokenHistory
-@Column(name = "cart_id", length = 36)
-    public String cartId;
 
+--tokenHistory
+BEGIN;
+ALTER TABLE event_schema.token_history ADD cart_id varchar(36) NULL;
+COMMIT;
 
 -- loyalty_schema
- @Index(name = "idx_membership_tier_history_created_at", columnList = "created_at"),
-    @Index(name = "idx_membership_tier_history_tier_id", columnList = "tier_id"),
-    @Index(name = "idx_membership_tier_history_tier_id_membership_id", columnList = "tier_id, membership_id")
+BEGIN;
+CREATE INDEX idx_membership_tier_history_created_at ON loyalty_schema.membership_tier_history USING btree (created_at);
+CREATE INDEX idx_membership_tier_history_tier_id ON loyalty_schema.membership_tier_history USING btree (tier_id);
+CREATE INDEX idx_membership_tier_history_tier_id_membership_id ON loyalty_schema.membership_tier_history USING btree (tier_id, membership_id);
+COMMIT;
 
-@Column(name = "is_ar", columnDefinition = "bool default false")
-    public Boolean isAr = false;
+-- vouchers
+BEGIN;
+ALTER TABLE loyalty_schema.vouchers ADD is_ar bool NULL DEFAULT false;
+COMMIT;
+
+-- loyalty_schema.ar_voucher_history definition
+
+BEGIN;
+CREATE TABLE loyalty_schema.ar_voucher_history (
+	id varchar(36) NOT NULL,
+	created_at timestamp NOT NULL,
+	event_id varchar(255) NULL,
+	get_voucher_at timestamp NULL,
+	reward_type varchar(255) NULL,
+	reward_value varchar(255) NULL,
+	user_activity_id varchar(255) NULL,
+	user_id varchar(36) NULL,
+	voucher_id varchar(36) NULL,
+	CONSTRAINT ar_voucher_history_pkey PRIMARY KEY (id)
+);
+CREATE INDEX idx_ar_voucher_history ON loyalty_schema.ar_voucher_history USING btree (user_id);
+
+-- loyalty_schema.ar_voucher_history foreign keys
+
+ALTER TABLE loyalty_schema.ar_voucher_history ADD CONSTRAINT fk6j2qaeh17nf5h5uhnts3rggig FOREIGN KEY (voucher_id) REFERENCES loyalty_schema.vouchers(id);
+COMMIT;
 
 -- Kodingan pending 
 -- Memberexternal Service line 301
@@ -59,6 +86,420 @@ order.base.url=http://order-service:8080/api
 
 
 -- survey_schema
+
+BEGIN;
+-- survey_schema.branch_setup definition
+CREATE TABLE survey_schema.branch_setup (
+	id varchar(36) NOT NULL,
+	branch_api_key varchar(200) NULL,
+	branch_integration_url varchar(200) NULL,
+	company_code varchar(10) NULL,
+	created_at timestamp(6) NOT NULL,
+	disabled_at timestamp(6) NULL,
+	updated_at timestamp(6) NULL,
+	CONSTRAINT branch_setup_pkey PRIMARY KEY (id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_survey definition
+CREATE TABLE survey_schema.general_survey (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	end_period timestamp(6) NULL,
+	is_pop_up bool NULL,
+	is_push_notif bool NULL,
+	"name" varchar(255) NULL,
+	notif_id varchar(36) NULL,
+	notif_name varchar(255) NULL,
+	notif_sended_at timestamp(6) NULL,
+	pop_up_id varchar(100) NULL,
+	pop_up_name varchar(255) NULL,
+	reward varchar(100) NULL,
+	reward_id varchar(100) NULL,
+	reward_name varchar(255) NULL,
+	reward_value numeric(38, 2) NULL,
+	start_period timestamp(6) NULL,
+	status varchar(50) NULL,
+	"trigger" varchar(50) NULL,
+	trigger_value numeric(38, 2) NULL,
+	CONSTRAINT general_survey_pkey PRIMARY KEY (id),
+--	CONSTRAINT general_survey_reward_check CHECK (((reward)::text = ANY ((ARRAY['COIN'::character varying, 'VOUCHER'::character varying, 'NO_REWARD'::character varying])::text[]))),
+--	CONSTRAINT general_survey_status_check CHECK (((status)::text = ANY ((ARRAY['ACTIVE'::character varying, 'INACTIVE'::character varying, 'DRAFT'::character varying])::text[]))),
+--	CONSTRAINT general_survey_trigger_check CHECK (((trigger)::text = ANY ((ARRAY['NO_TRIGGER'::character varying, 'TRANSACTION'::character varying])::text[])))
+);
+CREATE INDEX idx_general_end_period ON survey_schema.general_survey USING btree (end_period);
+CREATE INDEX idx_general_reward ON survey_schema.general_survey USING btree (reward);
+CREATE INDEX idx_general_start_period ON survey_schema.general_survey USING btree (start_period);
+CREATE INDEX idx_general_status ON survey_schema.general_survey USING btree (status);
+CREATE INDEX idx_general_survey_name ON survey_schema.general_survey USING btree (name);
+CREATE INDEX idx_general_trigger ON survey_schema.general_survey USING btree (trigger);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey definition
+
+CREATE TABLE survey_schema.survey (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	end_period timestamp(6) NULL,
+	is_deleted bool NULL DEFAULT false,
+	start_period timestamp(6) NULL,
+	survey_data text NULL,
+	survey_name varchar(255) NULL,
+	survey_question_amount int4 NULL,
+	survey_status varchar(255) NULL,
+	CONSTRAINT survey_pkey PRIMARY KEY (id),
+--  CONSTRAINT survey_survey_status_check CHECK (((survey_status)::text = ANY ((ARRAY['ACTIVE'::character varying, 'INACTIVE'::character varying, 'DRAFT'::character varying])::text[])))
+);
+CREATE INDEX idx_survey_is_deleted ON survey_schema.survey USING btree (is_deleted);
+CREATE INDEX idx_survey_status ON survey_schema.survey USING btree (survey_status);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_question_type definition
+
+CREATE TABLE survey_schema.survey_question_type (
+	survey_question_type_code varchar(255) NOT NULL,
+	survey_question_type_name varchar(255) NOT NULL,
+	CONSTRAINT survey_question_type_pkey PRIMARY KEY (survey_question_type_code)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.customer_response definition
+CREATE TABLE survey_schema.customer_response (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	completion_status bool NULL,
+	customer_response_history_id varchar(255) NOT NULL,
+	is_deleted bool NULL,
+	response_text text NOT NULL,
+	survey_question_id varchar(255) NOT NULL,
+	survey_id varchar(36) NULL,
+	CONSTRAINT customer_response_pkey PRIMARY KEY (id),
+	CONSTRAINT fkr7e65h3la2m4dwke8gj1me0lm FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.customer_response_history definition
+
+CREATE TABLE survey_schema.customer_response_history (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	completion_rate float8 NULL,
+	completion_rate_ratio varchar(255) NULL,
+	customer_name varchar(255) NULL,
+	customer_nps_score int4 NULL,
+	customer_phone_number varchar(255) NULL,
+	customer_survey_completion_status varchar(255) NULL,
+	customer_tier_name varchar(255) NULL,
+	guest_customer_name varchar(255) NULL,
+	is_deleted bool NULL DEFAULT false,
+	reward varchar(255) NULL,
+	sales_number varchar(255) NULL,
+	total_questions_answered int4 NULL,
+	total_questions_unanswered int4 NULL,
+	trans_id varchar(255) NULL,
+	trigger_status varchar(255) NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT customer_response_history_pkey PRIMARY KEY (id),
+	CONSTRAINT fkg1dwe68okmpbn7rgxhvvrrx5t FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+CREATE INDEX idx_customer_response_hisory_customer_nps_score ON survey_schema.customer_response_history USING btree (customer_nps_score);
+CREATE INDEX idx_customer_response_hisory_customer_survey_completion_status ON survey_schema.customer_response_history USING btree (customer_survey_completion_status);
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_customer_response definition
+
+CREATE TABLE survey_schema.general_customer_response (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	completion_status bool NULL,
+	customer_response_history_id varchar(255) NOT NULL,
+	is_deleted bool NULL,
+	response_text varchar(255) NOT NULL,
+	survey_question_id varchar(255) NOT NULL,
+	survey_id varchar(36) NULL,
+	CONSTRAINT general_customer_response_pkey PRIMARY KEY (id),
+	CONSTRAINT fkr505xx5lcgj6srcpidq7wqhte FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_customer_response_history definition
+CREATE TABLE survey_schema.general_customer_response_history (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	completion_rate float8 NULL,
+	completion_rate_ratio varchar(255) NULL,
+	customer_name varchar(255) NULL,
+	customer_phone_number varchar(255) NULL,
+	customer_survey_completion_status varchar(255) NULL,
+	customer_tier_name varchar(255) NULL,
+	is_deleted bool NULL DEFAULT false,
+	reward varchar(255) NULL,
+	rewardid varchar(255) NULL,
+	sales_number varchar(255) NULL,
+	total_questions_answered int4 NULL,
+	total_questions_unanswered int4 NULL,
+	trans_id varchar(255) NULL,
+	"trigger" varchar(255) NULL,
+	trigger_status varchar(255) NULL,
+	trigger_value varchar(255) NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT general_customer_response_history_pkey PRIMARY KEY (id),
+	CONSTRAINT fkcb0ktgm9otl7faxfkrtuwclk9 FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+CREATE INDEX idx_general_customer_response_history_customer_survey_completio ON survey_schema.general_customer_response_history USING btree (customer_survey_completion_status);
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_survey_brand definition
+
+CREATE TABLE survey_schema.general_survey_brand (
+	id varchar(36) NOT NULL,
+	brand_id int8 NULL,
+	brand_name varchar(255) NULL,
+	created_at timestamp(6) NOT NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_brand_pkey PRIMARY KEY (id),
+	CONSTRAINT fkscbcukmf44xpkwq5exm9xs1kt FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+COMMIT;
+
+
+BEGIN;
+-- survey_schema.general_survey_exclude_group definition
+
+CREATE TABLE survey_schema.general_survey_exclude_group (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	exclude_gruop_id varchar(255) NULL,
+	exclude_group_name varchar(255) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_exclude_group_pkey PRIMARY KEY (id),
+	CONSTRAINT fkjah6k047efcmsee3obwcttn8 FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_survey_group definition
+CREATE TABLE survey_schema.general_survey_group (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	group_id varchar(255) NULL,
+	group_name varchar(255) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_group_pkey PRIMARY KEY (id),
+	CONSTRAINT fk4iixi8o2io64skw640ws9hnk FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+COMMIT;
+
+
+BEGIN;
+-- survey_schema.general_survey_outlet definition
+
+CREATE TABLE survey_schema.general_survey_outlet (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	outlet_code varchar(255) NULL,
+	outlet_id int8 NULL,
+	outlet_name varchar(255) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_outlet_pkey PRIMARY KEY (id),
+	CONSTRAINT fk5aecn9nql2mgcnnysil2owgb7 FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+COMMIT;
+
+
+BEGIN;
+-- survey_schema.general_survey_question definition
+
+CREATE TABLE survey_schema.general_survey_question (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	is_required bool NULL,
+	"position" int4 NULL,
+	question text NULL,
+	questions text NULL,
+	"type" varchar(50) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_question_pkey PRIMARY KEY (id),
+--  CONSTRAINT general_survey_question_type_check CHECK (((type)::text = ANY ((ARRAY['SA'::character varying, 'LA'::character varying, 'MA'::character varying, 'CB'::character varying, 'LS'::character varying])::text[]))),
+	CONSTRAINT fkax5pvbq5fhlvvjbp29xslvads FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+CREATE INDEX idx_general_survey_question_position ON survey_schema.general_survey_question USING btree ("position");
+COMMIT;
+
+BEGIN;
+-- survey_schema.general_survey_tier definition
+CREATE TABLE survey_schema.general_survey_tier (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	tier_id varchar(255) NULL,
+	tier_name varchar(255) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT general_survey_tier_pkey PRIMARY KEY (id),
+	CONSTRAINT fk997lup4la5dhq53d7ggfnulvj FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.history_general_user definition
+CREATE TABLE survey_schema.history_general_user (
+	id varchar(36) NOT NULL,
+	compeleted_at timestamp(6) NULL,
+	created_at timestamp(6) NOT NULL,
+	member_code varchar(50) NULL,
+	member_name varchar(255) NULL,
+	member_tier varchar(100) NULL,
+	phone_number varchar(100) NULL,
+	sales_num varchar(255) NULL,
+	"type" varchar(50) NULL,
+	user_id varchar(36) NULL,
+	general_survey_id varchar(36) NULL,
+	CONSTRAINT history_general_user_pkey PRIMARY KEY (id),
+	CONSTRAINT history_general_user_type_check CHECK (((type)::text = ANY ((ARRAY['DRAFT'::character varying, 'COMPLETED'::character varying])::text[]))),
+	CONSTRAINT fk1w4k9f7mgfdqk9mywu8qg1ucv FOREIGN KEY (general_survey_id) REFERENCES survey_schema.general_survey(id)
+);
+CREATE INDEX idx_history_general_user_general_survey_id_type ON survey_schema.history_general_user USING btree (general_survey_id, type);
+CREATE INDEX idx_history_general_user_user_id ON survey_schema.history_general_user USING btree (user_id);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_brand definition
+
+CREATE TABLE survey_schema.survey_brand (
+	id varchar(36) NOT NULL,
+	brand_id int4 NOT NULL,
+	brand_name varchar(255) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_brand_pkey PRIMARY KEY (id),
+	CONSTRAINT fkl284xt2xcxmj5rqsd40ej37pj FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_customer_group definition
+
+CREATE TABLE survey_schema.survey_customer_group (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	customer_group_id varchar(255) NOT NULL,
+	customer_group_name varchar(255) NOT NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_customer_group_pkey PRIMARY KEY (id),
+	CONSTRAINT fksc93ocn33l6bxgvjfa5mnuk7v FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_exclude_customer_group definition
+
+CREATE TABLE survey_schema.survey_exclude_customer_group (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	exclude_customer_group_id varchar(255) NOT NULL,
+	exclude_customer_group_name varchar(255) NOT NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_exclude_customer_group_pkey PRIMARY KEY (id),
+	CONSTRAINT fkj7ybyuq69845cs3gon8kyt1hi FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+
+BEGIN;
+-- survey_schema.survey_outlet definition
+
+CREATE TABLE survey_schema.survey_outlet (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	outlet_code varchar(255) NOT NULL,
+	outlet_id int4 NOT NULL,
+	outlet_name varchar(255) NOT NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_outlet_pkey PRIMARY KEY (id),
+	CONSTRAINT fkn1rxta0omfu0yjnmpy29i99by FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+CREATE INDEX idx_survey_outlet_outlet_code ON survey_schema.survey_outlet USING btree (outlet_code);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_question definition
+CREATE TABLE survey_schema.survey_question (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	is_deleted bool NULL DEFAULT false,
+	is_required bool NULL,
+	question_answer_data text NULL,
+	question_optional_note varchar(255) NULL,
+	question_type_value varchar(255) NULL,
+	survey_question_sequence int4 NOT NULL,
+	survey_question_text varchar(255) NULL,
+	survey_question_type_code varchar(255) NOT NULL,
+	survey_question_type_name varchar(100) NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_question_pkey PRIMARY KEY (id),
+	CONSTRAINT fk573vicrl6b0e4d2jdg3wpvuhy FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+BEGIN;
+-- survey_schema.survey_tier definition
+CREATE TABLE survey_schema.survey_tier (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	tier_id varchar(255) NOT NULL,
+	tier_name varchar(255) NOT NULL,
+	survey_id varchar(36) NOT NULL,
+	CONSTRAINT survey_tier_pkey PRIMARY KEY (id),
+	CONSTRAINT fktptht31up6j0kqoqm24uq4jk7 FOREIGN KEY (survey_id) REFERENCES survey_schema.survey(id)
+);
+COMMIT;
+
+
+BEGIN;
+-- survey_schema.history_general definition
+CREATE TABLE survey_schema.history_general (
+	id varchar(36) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	created_by varchar(36) NULL,
+	updated_at timestamp(6) NULL,
+	updated_by varchar(36) NULL,
+	answer text NULL,
+	question_id varchar(36) NULL,
+	history_general_user_id varchar(36) NULL,
+	CONSTRAINT history_general_pkey PRIMARY KEY (id),
+	CONSTRAINT fke57q23ej87stbc71v614fq5h2 FOREIGN KEY (history_general_user_id) REFERENCES survey_schema.history_general_user(id),
+	CONSTRAINT fks0n272dmxpal69te3jnyb7pam FOREIGN KEY (question_id) REFERENCES survey_schema.general_survey_question(id)
+);
+CREATE INDEX idx_history_general_history_general_user_id_question_id ON survey_schema.history_general USING btree (history_general_user_id, question_id);
+COMMIT;
 
 -- Jangan lupa Bikin BranchSetup di Survey
 
@@ -148,33 +589,45 @@ Name : survey-backoffice-getCountCompletionGeneralSurvey-route
 Route : OPTION, GET
 Path : /api/v1/backoffice/general/survey/completion/(?<generalSurveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
 
--- General_survey Apps
+-- NPS Survey
 
-Name : survey-GetListQuestionSurvey-route
+Name : survey-backoffice-getListNpsSurvey-route
 Route : OPTION, GET
-Path : /api/v1/general/survey$
+Path : /api/v1/backoffice/survey$
 
-Name : survey-addAnswerQuestion-route
+Name : survey-backoffice-getDetailNpsSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/detail/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-getDetailCompletionNpsSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/history/completion/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-getInsertNpsSurvey-route
 Route : OPTION, POST
-Path : /api/v1/general/survey/answer$
+Path : /api/v1/backoffice/survey/insert$
 
-Name : survey-updateAllAnswerQuestion-route
+Name : survey-backoffice-getHistoryNpsSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/survey/npsHistory/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : survey-backoffice-updateNpsSurvey-route
 Route : OPTION, PUT
-Path : /api/v1/general/survey$
+Path : /api/v1/backoffice/survey/update/(?<surveyId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
 
-------->change to public kong mas angen<--------
+-- General_survey Apps
 
 Name : public-survey-GetListQuestionSurvey-route
 Route : OPTION, GET
-Path : /api/v1/general/survey$
+Path : /api/v1/general/survey/public$
 
 Name : public-survey-addAnswerQuestion-route
 Route : OPTION, POST
-Path : /api/v1/general/survey/answer$
+Path : /api/v1/general/survey/public/answer$
 
 Name : public-survey-updateAllAnswerQuestion-route
 Route : OPTION, PUT
-Path : /api/v1/general/survey$
+Path : /api/v1/general/survey/public$
 
 
 
