@@ -1,8 +1,99 @@
-//05-07-2023
-
 === user id gua  = b82f89a7-6dc5-43b7-9f32-f98ae728b5a1
 === membercode gua = 4HYVDYVC
 
+
+//28-07-2023
+
+=============== DDL =================
+
+--loyalty_schema
+@Entity
+@Table(name = "survey_voucher_history", indexes = {
+    @Index(name = "idx_svh_user_id", columnList = "user_id"),
+    @Index(name = "idx_svh_general_survey_id", columnList = "general_survey_id"),
+    @Index(name = "idx_svh_sales_num", columnList = "sales_num"),
+    @Index(name = "idx_svh_membership_id_voucher_id", columnList = "memberhsip_id, voucher_id"),
+})
+public class SurveyVoucherHistory extends PanacheEntityBase {
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", length = 36, nullable = false)
+    public String id;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "membership_id", nullable = false)
+    public Membership membership;
+    
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "voucher_id", nullable =  false)
+    public Vouchers voucher;
+
+    @Column(name = "user_id", nullable = false, length = 36)
+    public String userId;
+
+    @Column(name = "general_survey_id", nullable = false, length = 36)
+    public String generalSurveyId;
+
+    @Column(name = "sales_num")
+    public String salesNum;
+
+    @Column(name = "get_voucher_at", nullable = false)
+    public LocalDateTime getVoucherAt;
+
+    @Column(name = "created_at", nullable = false)
+    public LocalDateTime createdAt = DateUtil.now();
+
+}
+
+
+======== KONG ========
+
+-loyalty-service
+
+Name : loyalty-backoffice-getDropdownVoucherSurvey-route
+Route : OPTION, GET
+Path : /api/v1/backoffice/voucher/dropdown/survey$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//05-07-2023
 ======== Properties =========
 -- loyalty_service
 
