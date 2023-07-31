@@ -368,3 +368,13 @@ curl -X 'GET' \
 
 ###
 curl -X POST  -H "accept:application/json, text/plain, */*" -H "content-type:application/json" -H "cache-control:no-store" -H "responsetype:application/json" -H "authorization:Bearer sJPeSN3PdD49ER3X08SXYiW4kC3O9MZj" -H "x-fooma-ua:{"os":"ios","osver":"16.4","model":"iphone 14","appname":"fooma dev","appversion":"1.0.72","brand":"apple","appbundle":"id.co.fooma.dev","freestorage":28364169216,"ram":17179869184,"istablet":false,"deviceuniqueid":"725103b7-1e73-951d-f96a-93d66ca94149","deviceidgenerator":"bbd0b0bd-ba65-d9af-c469-4b1e7c67146f","devicemodel":"unknown","isemulator":true,"abis":["arm64e"]}" https://fooma.labstech.asia/api/v1/order/event -d '{"eventId":"abf41cfa-54ad-479e-b13a-f40d269d386a","eventName":"WE THE FEST 2023","tokenId":"9587571f-6a55-48c2-a3a7-7a4f7f5885a2","tokenName":"WE THE FEST 2023","priceToken":50000,"brandId":184,"brandName":"Sek Fan","brandLogo":"https://assets.labstech.asia/files/3bb19ebe-ce49-435d-97f7-10c209b23b4d","outletId":69,"outletName":"Tenant 3","outletCode":"LG098","outletImage":"https://assets.labstech.asia/files/10e66a1a-5de3-4df7-a8db-b3074d7f45e2","transactionTypeValue":"takeAwayEvent","platfrom":"ios","menuTemplateId":"05ba2770-f128-4f92-a062-b1e13d6be739","billNumber":"","additionalInformation":"","salesModeId":"0c7a7f39-d30f-4168-aaab-278153743ca6","salesModeName":"Pickup - WTF Testing","orderItems":[{"menuCategoryId":"185c7f49-65f2-4424-a039-0565708eb82a","menuCategory":"Beers","menuCategoryDetailId":"185c7f49-65f2-4424-a039-0565708eb82a","menuCategoryDetail":"Beers","menuId":"28bb898d-4f86-42dd-b172-b8e50869cf0e","menuName":"Heneiken","productDetail":"Heneiken","productImgUrl":"https://assets.labstech.asia/files/0c89bf97-1eca-4933-83e9-66092f9488dc","productHasVariant":false,"productOutletPrice":50000,"originalPriceItem":50000,"qty":1,"variants":[],"note":"","uniqueId":"82bccf25-ff9c-61f1-9ee2-ddd1a5249109"}]}'
+
+
+###
+curl
+'https://backoffice.fooma.co.id/api/v1/backoffice/general/survey/fa3160bb-1d2f-4a69-aa74-01a85f7da242' \
+  -H 'authority: backoffice.fooma.co.id' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'authorization: Bearer q3V1Mf7Vdl0wMpi1f8cGAo5OQArb8lz2' \
+  -H 'cookie: _ga=GA1.1.2073359433.1676085307; _ga_6GZV7M4F82=GS1.1.1687322614.4.0.1687322639.0.0.0; deviceIDBO=ceb9108b-bec7-4325-b194-444a593c2fbd; cf_clearance=9EpHIRbY_YKRmRyjgahqrOxtFDbK

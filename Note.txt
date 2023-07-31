@@ -291,7 +291,7 @@ CREATE TABLE survey_schema.customer_response_history (
 	created_by varchar(36) NULL,
 	updated_at timestamp(6) NULL,
 	updated_by varchar(36) NULL,
-	completion_rate float8 NULL,
+	completion_rate float8 NULL,	
 	completion_rate_ratio varchar(255) NULL,
 	customer_name varchar(255) NULL,
 	customer_nps_score int4 NULL,
