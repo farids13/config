@@ -49,6 +49,12 @@ public class SurveyVoucherHistory extends PanacheEntityBase {
 }
 
 
+-- user_schema
+
+ @Column(name = "is_bi")
+    public Boolean isBi;
+
+
 ======== KONG ========
 
 -loyalty-service
@@ -56,6 +62,203 @@ public class SurveyVoucherHistory extends PanacheEntityBase {
 Name : loyalty-backoffice-getDropdownVoucherSurvey-route
 Route : OPTION, GET
 Path : /api/v1/backoffice/voucher/dropdown/survey$
+
+
+- user-service
+
+Name : user-external-getListTagExternal-route
+Route : OPTION, GET
+Path : /api/v1/external/tag$
+
+Name : user-external-insertTagExternal-route
+Route : OPTION, POST
+Path : /api/v1/external/tag$
+
+Name : user-external-getDetailTagExternal-route
+Route : OPTION, GET
+Path : /api/v1/external/tag/(?<tagId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : user-external-updateTagExternal-route
+Route : OPTION, PUT
+Path : /api/v1/external/tag/(?<tagId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$
+
+Name : user-external-getListUserInTagExternal-route
+Route : OPTION, GET
+Path : /api/v1/external/tag/(?<tagId>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})/user$
+
+Name : user-external-addUserInTagExternal-route
+Route : OPTION, POST
+Path : /api/v1/external/tag/user/add$
+
+Name : user-external-deleteUserInTag-route
+Route : OPTION, DELETE
+Path : /api/v1/external/tag/user/delete$
+
+
+
+
+- ==== My Note ====
+
+SELECT
+  (SELECT COUNT(*) FROM survey_schema.history_general_user WHERE general_survey_id = :generalSurveyId) AS total_entries,
+  (SELECT COUNT(*) FROM survey_schema.history_general_user WHERE general_survey_id = :generalSurveyId AND type = 'COMPLETED') AS total_completed,
+  (SELECT created_at FROM survey_schema.general_survey WHERE id = :generalSurveyId) AS survey_created_at;
+
+ 
+ select * from survey_schema.general_survey gs 
+ where true
+ and :dateNow between gs.start_period and gs.end_period 
+ and gs.trigger = 'TRANSACTION'
+ and gs.trigger_value <= :triggerValue
+ and gs.status = 'ACTIVE'
+ 
+:dateNow between startPeriod and endPeriod 
+and trigger = 'TRANSACTION' 
+and triggerValue <= :triggerValue 
+and status = 'ACTIVE' 
+and isPushNotif = true 
+and notifId not null
+
+ ALTER TABLE survey_schema.general_survey ALTER COLUMN trigger_value TYPE numeric(19, 2) USING trigger_value::numeric;
+ ALTER TABLE survey_schema.general_survey ALTER COLUMN reward_value TYPE numeric(19, 2) USING reward_value::numeric;
+ 
+
+select token_value, payment_method_name , token_user_id  from event_schema.token_history th where TRUE
+and status = 'SUCCESS'
+and transaction_type = 'TOP_UP'
+and th.token_user_id = :tokenUserId
+and th.payment_method_name in ('DM_DAY_1', 'DM_DAY_2', 'DM_DAY_3')
+
+update event_schema.token_history
+set payment_method_name = 'DM_DAY_1'
+where payment_method_name = 'DM Day 1'
+
+SELECT
+  token_user_id,
+  MAX(CASE WHEN payment_method_name = 'DM_DAY_1' THEN token_value END) AS dm_day_1,
+  MAX(CASE WHEN payment_method_name = 'DM_DAY_2' THEN token_value END) AS dm_day_2,
+  MAX(CASE WHEN payment_method_name = 'DM_DAY_3' THEN token_value END) AS dm_day_3
+FROM event_schema.token_history
+WHERE
+  status = 'SUCCESS'
+  AND transaction_type = 'TOP_UP'
+  AND token_user_id = :tokenUserId
+  AND payment_method_name IN ('DM_DAY_1', 'DM_DAY_2', 'DM_DAY_3')
+GROUP BY token_user_id;
+
+SELECT
+  token_user_id,
+  SUM(CASE WHEN payment_method_name = 'DM_DAY_1' THEN token_value ELSE 0 END) AS dm_day_1,
+  SUM(CASE WHEN payment_method_name = 'DM_DAY_2' THEN token_value ELSE 0 END) AS dm_day_2,
+  SUM(CASE WHEN payment_method_name = 'DM_DAY_3' THEN token_value ELSE 0 END) AS dm_day_3
+FROM event_schema.token_history
+WHERE
+  status = 'SUCCESS'
+  AND transaction_type = 'TOP_UP'
+  AND token_user_id = :tokenUserId
+  AND payment_method_name IN ('DM_DAY_1', 'DM_DAY_2', 'DM_DAY_3')
+GROUP BY token_user_id;
+
+
+-- pake ini buat dapetin token user
+select distinct(user_id)  from event_schema.token_user tu;
+
+-- masukkan hasil query di atas ke dalam query in contoh like this
+select * from user_schema.user u where u.id not in ('5bbfcd25-b797-450b-8077-c8cf8b1790e7', '1ec9b05e-2f1a-4871-8704-fa120e959612');
+
+update event_schema.token_user set token_value = token_value - 10.5 where member_code = '4HYVDYVC' and (token_value - 10.5 >= 0)
+
+insert into event_schema.token_history (id, created_at,transaction_id, payment_method_name, token_value, price_token, total_amount, transaction_type, status, token_user_id) values (gen_random_uuid(), now(),:transactionId, :paymentMethodName, 16.5 , 30000, (30000*16.5), 'EXPIRED', 'EXPIRED', (select id from event_schema.token_user tu where member_code = '4HYVDYVC' and tu.token_id = '9587571f-6a55-48c2-a3a7-7a4f7f5885a2' ));
+
+
+
+select id, member_name, token_value as balance, (topup - redeem - refund) as balance_2, topup, redeem, refund from (
+select tu.id, tu.member_name, tu.token_value,
+(select COALESCE(sum(th.token_value),0) 
+       from event_schema.token_history th where th.token_user_id = tu.id and th.transaction_type = 'TOP_UP' and th.status not in ('EXPIRED', 'WAITING' ,'CANCELLED') and (th.status not in('PAID', 'SUCCESS') or th.transaction_type != 'REFUND')) as topup,
+(select COALESCE(sum(th.token_value),0) 
+       from event_schema.token_history th where th.token_user_id = tu.id and th.transaction_type = 'REDEEM' and th.status not in ('EXPIRED', 'WAITING' ,'CANCELLED') and (th.status not in ('PAID', 'SUCCESS') or th.transaction_type != 'REFUND')) as redeem,
+(select COALESCE(sum(th.token_value),0) 
+       from event_schema.token_history th where th.token_user_id = tu.id and th.transaction_type = 'REFUND' and th.status not in ('EXPIRED', 'WAITING' ,'CANCELLED') and not (th.status = 'PAID' and th.transaction_type = 'REFUND' or payment_method_name not in ('CASH', 'BANK_TRANSFER', 'E_WALLET'))) as refund
+from event_schema.token_user tu
+	where tu.token_id = '9587571f-6a55-48c2-a3a7-7a4f7f5885a2'
+) as x;
+
+
+update loyalty_schema.pos_voucher_history 
+set status = 'CLAIMED', membership_id = '6e78ecba-f385-4a31-8938-32c45ea4d13c', updated_at = now()
+where id = (select id from loyalty_schema.pos_voucher_history pvh where pvh.status = 'AVAILABLE' and pvh.pos_voucher_id = '6f694308-f6c6-4270-9160-49f2beb34b45' limit 1)
+
+--limit 1;
+
+update loyalty_schema.voucher_history 
+set type = 'CLAIMED', updated_at = now(), claimed_at = now(), membership_id = '40bc22cf-c2a0-42d9-881d-83f487150622'
+where id in (select id from loyalty_schema.voucher_history vh where vh.voucher_id = '0e9d0486-eeab-41e5-a579-54e8fa8e0777' and type = 'AVAILABLE' limit 20);
+
+select 
+u.id,
+uo.
+from user_schema.user u
+join user_schema.user_option uo on u.id = uo.user_id and uo.name = 'memberCode'
+
+
+select
+c.id as cartId,
+c.status,
+o.sales_num,
+o.bill_num,
+c.brand_id,
+c.brand_name,
+c.outlet_id,
+c.outlet_name,
+cast (c.ordered_at as timestamp),
+c.user_id,
+c.member_code, 
+c.user_name, 
+c.gender, 
+c.phone_number,
+c.email, 
+c.outlet_address, 
+c.transaction_type_value, 
+null as menu_ids, 
+null as menu_names, 
+null, 
+o.discount_total, 
+c.delivery_fee, 
+c.price_total, 
+o.amount_coin_used, 
+o.payment_method_id, 
+c.delivery_address, 
+c.order_external_id, 
+c.earning_coin, 
+c.tier_name, 
+c.platform, 
+o.sub_total, 
+c.transaction_mode_name,
+f.id as feebackId, 
+f.is_satisfied, 
+f.rate_value,
+c.is_other_cost, 
+o.menu_discount_total, 
+o.promotion_discount, 
+o.voucher_discount_total, 
+o.total_fooma_voucher_amount, 
+o.total_fooma_voucher_amount_ongkir, 
+null as vouchers, 
+fbo.confirmed_by_name as confirmed_by_name, 
+dt.status_now as delivery_tracking_status_now, 
+c.is_coin_recalculated as is_coin_recalculated, 
+o.sub_total_token, 
+o.total_token 
+from order_schema.cart c
+left join order_schema.finish_by_outlet fbo on fbo.cart_id = c.id 
+left join order_schema.delivery_tracking dt on dt.cart_id = c.id 
+left join order_schema.feedback f on f.cart_id = c.id 
+left join order_schema.order o on o.cart_id = c.id 
+where true 
+and c.ordered_at between :dateFrom and :dateTo 
+and c.deleted_at is null 
+
 
 
 
