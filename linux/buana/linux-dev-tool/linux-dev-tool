@@ -67,6 +67,25 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Fungsi untuk memuat konfigurasi
+export PLUGINS_DIR="${PLUGINS_DIR:-$SCRIPT_DIR/plugins}"
+
+load_config() {
+    # Buat direktori cache dan log jika belum ada
+    mkdir -p "$CACHE_DIR"
+    touch "$LOG_FILE"
+    
+    # Periksa apakah dijalankan sebagai root
+    if [ "$EUID" -eq 0 ]; then
+        log "WARNING" "Tidak disarankan menjalankan script ini sebagai root!"
+        read -p "Lanjutkan? [y/N] " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
+    fi
+}
+
 # Fungsi untuk memuat semua plugin yang tersedia
 load_plugins() {
     log "INFO" "Memuat plugin dari: $PLUGINS_DIR"
@@ -84,10 +103,18 @@ load_plugins() {
                 local PLUGIN_VERSION=""
                 local PLUGIN_AUTHOR=""
                 local PLUGIN_ENABLED=""
+                local PLUGIN_TYPE=""
                 
                 # Muat konfigurasi plugin
                 PLUGIN_CONF="${plugin_dir}plugin.conf"
                 source "$PLUGIN_CONF"
+                
+                # Jika ini adalah plugin generik, generate script install.sh jika belum ada
+                if [[ "$PLUGIN_TYPE" == generic/* ]] && [ ! -f "${plugin_dir}install.sh" ]; then
+                    log "INFO" "Membuat script instalasi untuk plugin generik: $PLUGIN_NAME"
+                    cp "$PLUGINS_DIR/generic/install.sh" "${plugin_dir}install.sh"
+                    chmod +x "${plugin_dir}install.sh"
+                fi
                 
                 if [ "$PLUGIN_ENABLED" = "true" ]; then
                     local plugin_name=$(basename "$plugin_dir")
@@ -98,15 +125,15 @@ load_plugins() {
                 log "DEBUG" "Direktori plugin tidak valid: $plugin_dir"
             fi
         done
+        
+        if [ ${#PLUGINS[@]} -eq 0 ]; then
+            log "WARNING" "Tidak ada plugin yang ditemukan atau diaktifkan!"
+        else
+            log "INFO" "Berhasil memuat ${#PLUGINS[@]} plugin"
+        fi
     else
         log "ERROR" "Direktori plugin tidak ditemukan: $PLUGINS_DIR"
         exit 1
-    fi
-    
-    if [ ${#PLUGINS[@]} -eq 0 ]; then
-        log "WARNING" "Tidak ada plugin yang ditemukan atau diaktifkan!"
-    else
-        log "INFO" "Berhasil memuat ${#PLUGINS[@]} plugin"
     fi
 }
 
@@ -121,13 +148,28 @@ show_header() {
     echo ""
 }
 
-# Fungsi untuk menampilkan menu utama
-show_menu() {
+# Fungsi untuk menampilkan menu aksi
+show_action_menu() {
     clear
     echo -e "${COLOR_BOLD}========================================${COLOR_RESET}"
-    echo -e "  ${COLOR_BOLD}Linux Development Environment Setup${COLOR_RESET}     "
-    echo -e "  ${COLOR_BLUE}Versi: ${VERSION}${COLOR_RESET}                                        "
-    echo -e "  ${COLOR_GREEN}Plugin Tersedia: ${#PLUGINS[@]}${COLOR_RESET}                          "
+    echo -e "  ${COLOR_BOLD}Linux Development Environment Setup${COLOR_RESET}"
+    echo -e "  ${COLOR_BLUE}Versi: ${VERSION}${COLOR_RESET}"
+    echo -e "  ${COLOR_GREEN}Plugin Tersedia: ${#PLUGINS[@]}${COLOR_RESET}"
+    echo -e "${COLOR_BOLD}========================================${COLOR_RESET}\n"
+    
+    echo -e "${COLOR_BOLD}Pilih Aksi:${COLOR_RESET}\n"
+    echo -e "${COLOR_GREEN}1. Install Plugin${COLOR_RESET}"
+    echo -e "${COLOR_YELLOW}2. Uninstall Plugin${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}3. Cek Status Plugin${COLOR_RESET}"
+    echo -e "${COLOR_RED}4. Keluar${COLOR_RESET}\n"
+}
+
+# Fungsi untuk menampilkan daftar plugin
+show_plugin_list() {
+    local action=$1
+    clear
+    echo -e "${COLOR_BOLD}========================================${COLOR_RESET}"
+    echo -e "  ${COLOR_BOLD}Pilih Plugin untuk ${action}${COLOR_RESET}"
     echo -e "${COLOR_BOLD}========================================${COLOR_RESET}\n"
     
     # Tampilkan daftar plugin
@@ -151,13 +193,14 @@ show_menu() {
     
     # Tampilkan opsi tambahan
     local last_option=$((${#PLUGINS[@]} + 1))
-    echo -e "${COLOR_GREEN}$((last_option)). Perbarui Daftar Plugin${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}$((last_option)). Kembali ke Menu Utama${COLOR_RESET}"
     echo -e "${COLOR_RED}$((last_option+1)). Keluar${COLOR_RESET}\n"
 }
 
-# Fungsi untuk menjalankan plugin
-run_plugin() {
+# Fungsi untuk menjalankan aksi pada plugin
+run_plugin_action() {
     local plugin="$1"
+    local action="$2"
     local plugin_dir="$PLUGINS_DIR/$plugin"
     
     if [ ! -d "$plugin_dir" ]; then
@@ -171,6 +214,7 @@ run_plugin() {
     local PLUGIN_VERSION=""
     local PLUGIN_AUTHOR=""
     local PLUGIN_ENABLED=""
+    local PLUGIN_TYPE=""
     
     # Muat konfigurasi plugin
     if [ -f "${plugin_dir}/plugin.conf" ]; then
@@ -180,122 +224,183 @@ run_plugin() {
         return 1
     fi
     
-    while true; do
-        show_header
-        echo -e "${COLOR_BOLD}${PLUGIN_NAME}${COLOR_RESET}"
-        echo -e "${COLOR_BLUE}${PLUGIN_DESCRIPTION}${COLOR_RESET}"
-        echo ""
-        echo -e "Versi: ${COLOR_YELLOW}${PLUGIN_VERSION}${COLOR_RESET}"
-        echo -e "Status: ${COLOR_GREEN}Aktif${COLOR_RESET}"
-        echo ""
-        
-        # Tampilkan menu aksi
-        echo -e "${COLOR_BOLD}Pilih aksi:${COLOR_RESET}"
-        echo "  1. Install"
-        echo "  2. Uninstall"
-        echo "  3. Periksa Status"
-        echo "  4. Kembali ke Menu Utama"
-        echo ""
-        
-        read -p "Pilih aksi (1-4): " action
-        
-        case $action in
-            1)
-                log "INFO" "Menginstall ${PLUGIN_NAME}..."
-                if [ -f "${plugin_dir}/install.sh" ]; then
-                    echo ""
-                    (cd "$plugin_dir" && bash "install.sh" install)
+    show_header
+    echo -e "${COLOR_BOLD}${PLUGIN_NAME}${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}${PLUGIN_DESCRIPTION}${COLOR_RESET}"
+    echo ""
+    echo -e "Versi: ${COLOR_YELLOW}${PLUGIN_VERSION}${COLOR_RESET}"
+    echo -e "Aksi: ${COLOR_CYAN}${action^}${COLOR_RESET}"
+    echo ""
+    
+    # Jalankan aksi yang diminta
+    case $action in
+        install)
+            echo -e "${COLOR_GREEN}Menginstall ${PLUGIN_NAME}...${COLOR_RESET}"
+            if [ -x "${plugin_dir}/install.sh" ]; then
+                (cd "$plugin_dir" && ./install.sh install)
+            else
+                # Gunakan generic installer untuk tipe generic/*
+                if [[ "$PLUGIN_TYPE" == generic/* ]]; then
+                    # Eksekusi PRE_INSTALL jika ada
+                    if [ -n "$PRE_INSTALL" ]; then
+                        echo -e "${COLOR_CYAN}Menjalankan perintah pra-instalasi...${COLOR_RESET}"
+                        eval "$PRE_INSTALL"
+                    fi
+                    
+                    # Install package
+                    if [ -n "$PACKAGES" ]; then
+                        echo -e "${COLOR_CYAN}Menginstall package: ${PACKAGES}${COLOR_RESET}"
+                        sudo apt-get update
+                        sudo apt-get install -y $PACKAGES
+                    fi
+                    
+                    # Eksekusi POST_INSTALL jika ada
+                    if [ -n "$POST_INSTALL" ]; then
+                        echo -e "${COLOR_CYAN}Menjalankan perintah pasca-instalasi...${COLOR_RESET}"
+                        eval "$POST_INSTALL"
+                    fi
+                    
+                    echo -e "${COLOR_GREEN}${PLUGIN_NAME} berhasil diinstall!${COLOR_RESET}"
                 else
-                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                    echo -e "${COLOR_YELLOW}Script instalasi tidak ditemukan.${COLOR_RESET}"
                 fi
-                echo ""
-                read -p "Tekan Enter untuk melanjutkan..."
-                ;;
-            2)
-                log "INFO" "Menghapus ${PLUGIN_NAME}..."
-                if [ -f "${plugin_dir}/install.sh" ]; then
-                    echo ""
-                    (cd "$plugin_dir" && bash "install.sh" uninstall)
+            fi
+            ;;
+            
+        uninstall)
+            echo -e "${COLOR_YELLOW}Menghapus ${PLUGIN_NAME}...${COLOR_RESET}"
+            if [ -x "${plugin_dir}/install.sh" ]; then
+                (cd "$plugin_dir" && ./install.sh uninstall)
+            else
+                # Gunakan generic uninstaller untuk tipe generic/*
+                if [[ "$PLUGIN_TYPE" == generic/* ]] && [ -n "$PACKAGES" ]; then
+                    echo -e "${COLOR_CYAN}Menghapus package: ${PACKAGES}${COLOR_RESET}"
+                    sudo apt-get remove -y $PACKAGES
+                    echo -e "${COLOR_GREEN}${PLUGIN_NAME} berhasil dihapus!${COLOR_RESET}"
                 else
-                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                    echo -e "${COLOR_YELLOW}Script uninstall tidak ditemukan.${COLOR_RESET}"
                 fi
-                echo ""
-                read -p "Tekan Enter untuk melanjutkan..."
-                ;;
-            3)
-                log "INFO" "Memeriksa status ${PLUGIN_NAME}..."
-                if [ -f "${plugin_dir}/install.sh" ]; then
-                    echo ""
-                    (cd "$plugin_dir" && bash "install.sh" status)
+            fi
+            ;;
+            
+        status)
+            echo -e "${COLOR_BLUE}Memeriksa status ${PLUGIN_NAME}...${COLOR_RESET}"
+            if [ -x "${plugin_dir}/install.sh" ]; then
+                (cd "$plugin_dir" && ./install.sh status)
+            else
+                # Gunakan generic status checker untuk tipe generic/*
+                if [[ "$PLUGIN_TYPE" == generic/* ]]; then
+                    echo -e "${COLOR_BOLD}Informasi Plugin:${COLOR_RESET}"
+                    echo -e "Nama: ${PLUGIN_NAME}"
+                    echo -e "Deskripsi: ${PLUGIN_DESCRIPTION}"
+                    echo -e "Versi: ${PLUGIN_VERSION}"
+                    echo -e "Tipe: ${PLUGIN_TYPE}"
+                    
+                    if [ -n "$PACKAGES" ]; then
+                        echo -e "\n${COLOR_BOLD}Status Package:${COLOR_RESET}"
+                        for pkg in $PACKAGES; do
+                            if dpkg -s "$pkg" &> /dev/null; then
+                                local version=$(dpkg -s "$pkg" | grep '^Version:' | cut -d ' ' -f 2-)
+                                echo -e "${COLOR_GREEN}✓${COLOR_RESET} $pkg (${version}) - Terinstall"
+                            else
+                                echo -e "${COLOR_RED}✗${COLOR_RESET} $pkg - Tidak terinstall"
+                            fi
+                        done
+                    fi
                 else
-                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                    echo -e "${COLOR_YELLOW}Script status tidak ditemukan.${COLOR_RESET}"
                 fi
-                echo ""
-                read -p "Tekan Enter untuk melanjutkan..."
-                ;;
-            4)
-                return 0
-                ;;
-            *)
-                echo -e "\n${COLOR_RED}Pilihan tidak valid!${COLOR_RESET}"
-                sleep 1
-                ;;
-        esac
-    done
+            fi
+            ;;
+    esac
 }
 
 # Main program
 main() {
-    # Pastikan script dijalankan dengan bash
-    if [ -z "$BASH_VERSION" ]; then
-        echo "Script ini harus dijalankan dengan bash"
-        exit 1
-    fi
-    
-    # Buat direktori cache dan log jika belum ada
-    mkdir -p "$CACHE_DIR"
-    touch "$LOG_FILE"
-    
-    # Periksa apakah dijalankan sebagai root
-    if [ "$EUID" -eq 0 ]; then
-        log "WARNING" "Tidak disarankan menjalankan script ini sebagai root!"
-        read -p "Lanjutkan? [y/N] " -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            exit 1
-        fi
-    fi
+    # Muat konfigurasi
+    load_config
     
     # Muat plugin
     load_plugins
     
-    # Tampilkan menu utama
+    # Periksa argumen command line
+    if [ $# -gt 0 ]; then
+        # Mode non-interaktif
+        case "$1" in
+            --help|-h)
+                show_help
+                exit 0
+                ;;
+            --version|-v)
+                echo "Linux Dev Tool v$VERSION"
+                exit 0
+                ;;
+            *)
+                echo "Perintah tidak dikenali. Gunakan --help untuk bantuan."
+                exit 1
+                ;;
+        esac
+    fi
+    
+    # Mode interaktif
     while true; do
-        show_menu
-        read -p "Pilih opsi (1-$((${#PLUGINS[@]} + 2))): " choice
+        show_action_menu
+        
+        # Baca pilihan aksi
+        read -p "Pilih aksi [1-4]: " action_choice
         
         # Validasi input
-        if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
-            echo -e "\n${COLOR_RED}Masukkan angka yang valid!${COLOR_RESET}"
+        if ! [[ "$action_choice" =~ ^[1-4]$ ]]; then
+            echo -e "${COLOR_RED}Masukkan nomor antara 1-4!${COLOR_RESET}"
             sleep 1
             continue
         fi
         
-        if [ "$choice" -ge 1 ] && [ "$choice" -le "${#PLUGINS[@]}" ]; then
-            # Jalankan plugin yang dipilih
-            run_plugin "${PLUGINS[$((choice-1))]}"
-        elif [ "$choice" -eq $((${#PLUGINS[@]} + 1)) ]; then
-            # Perbarui daftar plugin
-            load_plugins
-            echo -e "\n${COLOR_GREEN}Daftar plugin telah diperbarui!${COLOR_RESET}"
-            sleep 1
-        elif [ "$choice" -eq $((${#PLUGINS[@]} + 2)) ]; then
-            # Keluar
-            echo -e "\nTerima kasih telah menggunakan Linux Dev Tool!"
-            exit 0
-        else
-            echo -e "\n${COLOR_RED}Pilihan tidak valid!${COLOR_RESET}"
-            sleep 1
+        case $action_choice in
+            1) action="install" ;;
+            2) action="uninstall" ;;
+            3) action="status" ;;
+            4) 
+                echo -e "${COLOR_BLUE}Terima kasih telah menggunakan Linux Dev Tool!${COLOR_RESET}"
+                exit 0
+                ;;
+        esac
+        
+        if [ "$action_choice" -ne 4 ]; then
+            while true; do
+                show_plugin_list "${action^}"
+                
+                # Baca pilihan plugin
+                read -p "Pilih plugin [1-$((${#PLUGINS[@]} + 2))]: " plugin_choice
+                
+                # Validasi input
+                if ! [[ "$plugin_choice" =~ ^[0-9]+$ ]]; then
+                    echo -e "${COLOR_RED}Masukkan nomor yang valid!${COLOR_RESET}"
+                    sleep 1
+                    continue
+                fi
+                
+                # Proses pilihan
+                if [ "$plugin_choice" -eq $((${#PLUGINS[@]} + 1)) ]; then
+                    # Kembali ke menu utama
+                    break
+                elif [ "$plugin_choice" -eq $((${#PLUGINS[@]} + 2)) ]; then
+                    # Keluar
+                    echo -e "${COLOR_BLUE}Terima kasih telah menggunakan Linux Dev Tool!${COLOR_RESET}"
+                    exit 0
+                elif [ "$plugin_choice" -ge 1 ] && [ "$plugin_choice" -le "${#PLUGINS[@]}" ]; then
+                    # Jalankan aksi pada plugin yang dipilih
+                    local plugin_index=$((plugin_choice - 1))
+                    run_plugin_action "${PLUGINS[$plugin_index]}" "$action"
+                    
+                    # Tampilkan konfirmasi
+                    echo ""
+                    read -n 1 -s -r -p "Tekan tombol apa saja untuk melanjutkan..."
+                else
+                    echo -e "${COLOR_RED}Pilihan tidak valid!${COLOR_RESET}"
+                    sleep 1
+                fi
+            done
         fi
     done
 }

@@ -12,122 +12,121 @@ else
     exit 1
 fi
 
-# Fungsi untuk memeriksa dependensi
-check_dependencies() {
-    local missing_deps=()
+# Fungsi untuk memeriksa apakah package sudah terinstall
+is_package_installed() {
+    local pkg=$1
+    if [ "$PLUGIN_TYPE" = "generic/apt" ]; then
+        dpkg -l "$pkg" 2>/dev/null | grep -q ^ii
+        return $?
+    elif [ "$PLUGIN_TYPE" = "generic/snap" ]; then
+        snap list | grep -q "^$pkg\s"
+        return $?
+    else
+        command -v "$pkg" >/dev/null 2>&1
+        return $?
+    fi
+}
+
+# Fungsi untuk memeriksa ketersediaan package di repository
+is_package_available() {
+    local pkg=$1
+    if [ "$PLUGIN_TYPE" = "generic/apt" ]; then
+        apt-cache show "$pkg" >/dev/null 2>&1
+        return $?
+    elif [ "$PLUGIN_TYPE" = "generic/snap" ]; then
+        snap find "$pkg" >/dev/null 2>&1
+        return $?
+    fi
+    return 1
+}
+
+# Fungsi untuk menginstall package
+install_package() {
+    local pkg=$1
+    echo "Menginstall $pkg..."
     
-    for dep in "${DEPENDENCIES[@]}"; do
-        if ! command -v "$dep" &> /dev/null; then
-            missing_deps+=("$dep")
+    if [ "$PLUGIN_TYPE" = "generic/apt" ]; then
+        sudo apt-get install -y "$pkg"
+    elif [ "$PLUGIN_TYPE" = "generic/snap" ]; then
+        sudo snap install "$pkg" --classic
+    else
+        echo "Tipe plugin tidak didukung: $PLUGIN_TYPE"
+        return 1
+    fi
+    
+    return $?
+}
+
+# Fungsi untuk menginstall
+install() {
+    if [ -z "$PACKAGES" ]; then
+        echo "Tidak ada package yang ditentukan untuk diinstall."
+        return 1
+    fi
+    
+    echo "Memeriksa dan menginstall package..."
+    
+    for pkg in $PACKAGES; do
+        if is_package_installed "$pkg"; then
+            echo "✓ $pkg sudah terinstall"
+        else
+            if is_package_available "$pkg"; then
+                install_package "$pkg" || {
+                    echo "Gagal menginstall $pkg"
+                    return 1
+                }
+            else
+                echo "Package $pkg tidak tersedia di repository"
+                return 1
+            fi
         fi
     done
     
-    if [ ${#missing_deps[@]} -gt 0 ]; then
-        echo "Dependensi yang hilang: ${missing_deps[*]}"
-        echo "Menginstall dependensi..."
-        sudo apt-get update
-        sudo apt-get install -y "${missing_deps[@]}" || {
-            echo "Gagal menginstall dependensi yang diperlukan"
-            exit 1
-        }
-    fi
+    echo "Semua package berhasil diinstall!"
 }
 
-# Fungsi untuk menginstall Java
-install() {
-    echo "Memeriksa Java..."
-    
-    # Periksa apakah Java sudah terinstall
-    if command -v java &> /dev/null; then
-        local installed_version=$(java -version 2>&1 | grep -oP 'version "\K[0-9]+' | head -1)
-        if [ "$installed_version" == "$JAVA_VERSION" ]; then
-            echo "✓ Java $JAVA_VERSION sudah terinstall"
-            java -version
-            return 0
-        else
-            echo "Versi Java yang terinstall berbeda. Versi saat ini: $installed_version"
-            read -p "Lanjutkan dengan menginstall Java $JAVA_VERSION? [y/N] " -n 1 -r
-            echo
-            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-                return 1
-            fi
-            # Hapus versi lama jika ada
-            sudo apt-get remove -y "openjdk-${installed_version}-jdk" "openjdk-${installed_version}-jre"
-        fi
-    fi
-    
-    check_dependencies
-    
-    echo "Menginstall OpenJDK $JAVA_VERSION..."
-    
-    # Untuk Java 21, kita bisa menggunakan package default di Ubuntu 22.04+
-    if [ "$JAVA_VERSION" -ge 21 ]; then
-        # Install OpenJDK 21 dari repository default
-        sudo apt-get update
-        sudo apt-get install -y openjdk-${JAVA_VERSION}-jdk
-    else
-        # Untuk versi lama, gunakan PPA
-        sudo add-apt-repository -y ppa:openjdk-r/ppa
-        sudo apt-get update
-        sudo apt-get install -y openjdk-${JAVA_VERSION}-jdk
-    fi
-    
-    # Set JAVA_HOME di .bashrc jika belum ada
-    if ! grep -q "export JAVA_HOME=" ~/.bashrc; then
-        echo "" >> ~/.bashrc
-        echo "# Set JAVA_HOME" >> ~/.bashrc
-        echo "export JAVA_HOME=$JAVA_HOME_DIR" >> ~/.bashrc
-        echo "export PATH=\"\$JAVA_HOME/bin:\$PATH\"" >> ~/.bashrc
-        echo "✓ JAVA_HOME telah ditambahkan ke ~/.bashrc"
-    fi
-    
-    # Load environment variables
-    export JAVA_HOME=$JAVA_HOME_DIR
-    export PATH="$JAVA_HOME/bin:$PATH"
-    
-    # Verifikasi instalasi
-    if command -v java &> /dev/null; then
-        echo ""
-        echo "✓ Java berhasil diinstall:"
-        java -version
-        echo ""
-        echo "JAVA_HOME: $JAVA_HOME"
-        return 0
-    else
-        echo "✗ Gagal menginstall Java"
+# Fungsi untuk menghapus
+uninstall() {
+    if [ -z "$PACKAGES" ]; then
+        echo "Tidak ada package yang ditentukan untuk dihapus."
         return 1
     fi
+    
+    echo "Menghapus package..."
+    
+    for pkg in $PACKAGES; do
+        if is_package_installed "$pkg"; then
+            echo "Menghapus $pkg..."
+            if [ "$PLUGIN_TYPE" = "generic/apt" ]; then
+                sudo apt-get remove -y "$pkg"
+            elif [ "$PLUGIN_TYPE" = "generic/snap" ]; then
+                sudo snap remove "$pkg"
+            fi
+        else
+            echo "$pkg tidak terinstall, dilewati"
+        fi
+    done
+    
+    echo "Proses selesai."
 }
 
-# Fungsi untuk menghapus Java
-uninstall() {
-    echo "Menghapus Java..."
-    
-    # Hapus instalasi Java
-    sudo apt-get remove -y "openjdk-${JAVA_VERSION}-jdk" "openjdk-${JAVA_VERSION}-jre"
-    sudo apt-get autoremove -y
-    
-    # Hapus JAVA_HOME dari .bashrc
-    sed -i '/export JAVA_HOME=/d' ~/.bashrc
-    sed -i '/export PATH=\"\$JAVA_HOME\/bin:\$PATH\"/d' ~/.bashrc
-    
-    echo "✓ Java telah dihapus"
-    echo "Jalankan 'source ~/.bashrc' atau buka terminal baru untuk memperbarui environment variables"
-}
-
-# Fungsi untuk mengecek status Java
+# Fungsi untuk mengecek status
 status() {
-    echo "Memeriksa status Java..."
-    
-    if command -v java &> /dev/null; then
-        local installed_version=$(java -version 2>&1 | awk -F '[\"\\"]' '/version/ {print $2}' | cut -d'.' -f1)
-        echo "✓ Java terdeteksi"
-        echo "Versi: $(java -version 2>&1 | head -n 1)"
-        echo "JAVA_HOME: ${JAVA_HOME:-Tidak diatur}"
-        echo "Lokasi: $(which java)"
-    else
-        echo "✗ Java tidak terdeteksi"
+    if [ -z "$PACKAGES" ]; then
+        echo "Tidak ada package yang ditentukan."
+        return 1
     fi
+    
+    echo "Status package:"
+    echo "----------------"
+    
+    for pkg in $PACKAGES; do
+        if is_package_installed "$pkg"; then
+            echo -e "${COLOR_GREEN}✓ $pkg: Terinstall${COLOR_RESET}"
+        else
+            echo -e "${COLOR_RED}✗ $pkg: Tidak terinstall${COLOR_RESET}"
+        fi
+    done
 }
 
 # Handle command line arguments
