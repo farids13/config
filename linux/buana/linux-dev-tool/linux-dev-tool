@@ -1,0 +1,304 @@
+#!/bin/bash
+
+# ============================================
+#  Linux Development Environment Setup Tool
+#  Versi: 1.0.0
+#  Dibuat dengan ❤️ oleh Linux Enthusiast
+# ============================================
+
+# Dapatkan direktori script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLUGINS_DIR="$SCRIPT_DIR/plugins"
+
+# Muat konfigurasi
+if [ -f "$SCRIPT_DIR/config/settings.conf" ]; then
+    source "$SCRIPT_DIR/config/settings.conf"
+else
+    echo "${COLOR_RED}Error: File konfigurasi tidak ditemukan!${COLOR_RESET}"
+    exit 1
+fi
+
+# Buat direktori cache jika belum ada
+mkdir -p "$CACHE_DIR"
+
+# Fungsi untuk logging
+log() {
+    local level="$1"
+    local message="$2"
+    local timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+    
+    # Tentukan warna berdasarkan level
+    case "$level" in
+        "DEBUG") local color="$COLOR_CYAN" ;;
+        "INFO") local color="$COLOR_GREEN" ;;
+        "WARNING") local color="$COLOR_YELLOW" ;;
+        "ERROR") local color="$COLOR_RED" ;;
+        *) local color="$COLOR_RESET" ;;
+    esac
+    
+    # Tulis ke log file
+    echo "[$timestamp] [$level] $message" >> "$LOG_FILE"
+    
+    # Tampilkan ke layar berdasarkan level log
+    case "$LOG_LEVEL" in
+        "DEBUG")
+            echo -e "${color}[${level}]${COLOR_RESET} ${message}"
+            ;;
+        "INFO")
+            if [ "$level" != "DEBUG" ]; then
+                echo -e "${color}[${level}]${COLOR_RESET} ${message}"
+            fi
+            ;;
+        "WARNING")
+            if [ "$level" != "DEBUG" ] && [ "$level" != "INFO" ]; then
+                echo -e "${color}[${level}]${COLOR_RESET} ${message}"
+            fi
+            ;;
+        "ERROR")
+            if [ "$level" = "ERROR" ]; then
+                echo -e "${color}[${level}]${COLOR_RESET} ${message}" >&2
+            fi
+            ;;
+    esac
+}
+
+# Fungsi untuk memeriksa apakah perintah tersedia
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Fungsi untuk memuat semua plugin yang tersedia
+load_plugins() {
+    log "INFO" "Memuat plugin dari: $PLUGINS_DIR"
+    
+    # Reset array
+    PLUGINS=()
+    
+    # Cari semua direktori plugin
+    if [ -d "$PLUGINS_DIR" ]; then
+        for plugin_dir in "$PLUGINS_DIR"/*/; do
+            if [ -d "$plugin_dir" ] && [ -f "${plugin_dir}plugin.conf" ]; then
+                # Reset variabel konfigurasi plugin
+                local PLUGIN_NAME=""
+                local PLUGIN_DESCRIPTION=""
+                local PLUGIN_VERSION=""
+                local PLUGIN_AUTHOR=""
+                local PLUGIN_ENABLED=""
+                
+                # Muat konfigurasi plugin
+                PLUGIN_CONF="${plugin_dir}plugin.conf"
+                source "$PLUGIN_CONF"
+                
+                if [ "$PLUGIN_ENABLED" = "true" ]; then
+                    local plugin_name=$(basename "$plugin_dir")
+                    PLUGINS+=("$plugin_name")
+                    log "INFO" "✓ Plugin ditemukan: $PLUGIN_NAME ($plugin_name)"
+                fi
+            else
+                log "DEBUG" "Direktori plugin tidak valid: $plugin_dir"
+            fi
+        done
+    else
+        log "ERROR" "Direktori plugin tidak ditemukan: $PLUGINS_DIR"
+        exit 1
+    fi
+    
+    if [ ${#PLUGINS[@]} -eq 0 ]; then
+        log "WARNING" "Tidak ada plugin yang ditemukan atau diaktifkan!"
+    else
+        log "INFO" "Berhasil memuat ${#PLUGINS[@]} plugin"
+    fi
+}
+
+# Fungsi untuk menampilkan header
+show_header() {
+    clear
+    echo -e "${COLOR_BLUE}========================================${COLOR_RESET}"
+    echo -e "${COLOR_BOLD}  Linux Development Environment Setup${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}  Versi: ${COLOR_YELLOW}$VERSION${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}  Plugin Tersedia: ${COLOR_YELLOW}${#PLUGINS[@]}${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}========================================${COLOR_RESET}"
+    echo ""
+}
+
+# Fungsi untuk menampilkan menu utama
+show_menu() {
+    clear
+    echo -e "${COLOR_BOLD}========================================${COLOR_RESET}"
+    echo -e "  ${COLOR_BOLD}Linux Development Environment Setup${COLOR_RESET}     "
+    echo -e "  ${COLOR_BLUE}Versi: ${VERSION}${COLOR_RESET}                                        "
+    echo -e "  ${COLOR_GREEN}Plugin Tersedia: ${#PLUGINS[@]}${COLOR_RESET}                          "
+    echo -e "${COLOR_BOLD}========================================${COLOR_RESET}\n"
+    
+    # Tampilkan daftar plugin
+    for i in "${!PLUGINS[@]}"; do
+        local plugin_dir="$PLUGINS_DIR/${PLUGINS[$i]}"
+        if [ -f "$plugin_dir/plugin.conf" ]; then
+            # Reset variabel
+            local PLUGIN_NAME=""
+            local PLUGIN_DESCRIPTION=""
+            local PLUGIN_VERSION=""
+            
+            # Muat konfigurasi
+            source "$plugin_dir/plugin.conf"
+            
+            # Tampilkan informasi plugin
+            echo -e "${COLOR_BOLD}$((i+1)). ${PLUGIN_NAME}${COLOR_RESET}"
+            echo -e "   ${PLUGIN_DESCRIPTION}"
+            echo -e "   Versi: ${COLOR_YELLOW}${PLUGIN_VERSION}${COLOR_RESET}\n"
+        fi
+    done
+    
+    # Tampilkan opsi tambahan
+    local last_option=$((${#PLUGINS[@]} + 1))
+    echo -e "${COLOR_GREEN}$((last_option)). Perbarui Daftar Plugin${COLOR_RESET}"
+    echo -e "${COLOR_RED}$((last_option+1)). Keluar${COLOR_RESET}\n"
+}
+
+# Fungsi untuk menjalankan plugin
+run_plugin() {
+    local plugin="$1"
+    local plugin_dir="$PLUGINS_DIR/$plugin"
+    
+    if [ ! -d "$plugin_dir" ]; then
+        log "ERROR" "Plugin '$plugin' tidak ditemukan!"
+        return 1
+    fi
+    
+    # Reset variabel konfigurasi plugin
+    local PLUGIN_NAME=""
+    local PLUGIN_DESCRIPTION=""
+    local PLUGIN_VERSION=""
+    local PLUGIN_AUTHOR=""
+    local PLUGIN_ENABLED=""
+    
+    # Muat konfigurasi plugin
+    if [ -f "${plugin_dir}/plugin.conf" ]; then
+        source "${plugin_dir}/plugin.conf"
+    else
+        log "ERROR" "File konfigurasi plugin tidak ditemukan: ${plugin_dir}/plugin.conf"
+        return 1
+    fi
+    
+    while true; do
+        show_header
+        echo -e "${COLOR_BOLD}${PLUGIN_NAME}${COLOR_RESET}"
+        echo -e "${COLOR_BLUE}${PLUGIN_DESCRIPTION}${COLOR_RESET}"
+        echo ""
+        echo -e "Versi: ${COLOR_YELLOW}${PLUGIN_VERSION}${COLOR_RESET}"
+        echo -e "Status: ${COLOR_GREEN}Aktif${COLOR_RESET}"
+        echo ""
+        
+        # Tampilkan menu aksi
+        echo -e "${COLOR_BOLD}Pilih aksi:${COLOR_RESET}"
+        echo "  1. Install"
+        echo "  2. Uninstall"
+        echo "  3. Periksa Status"
+        echo "  4. Kembali ke Menu Utama"
+        echo ""
+        
+        read -p "Pilih aksi (1-4): " action
+        
+        case $action in
+            1)
+                log "INFO" "Menginstall ${PLUGIN_NAME}..."
+                if [ -f "${plugin_dir}/install.sh" ]; then
+                    echo ""
+                    (cd "$plugin_dir" && bash "install.sh" install)
+                else
+                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                fi
+                echo ""
+                read -p "Tekan Enter untuk melanjutkan..."
+                ;;
+            2)
+                log "INFO" "Menghapus ${PLUGIN_NAME}..."
+                if [ -f "${plugin_dir}/install.sh" ]; then
+                    echo ""
+                    (cd "$plugin_dir" && bash "install.sh" uninstall)
+                else
+                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                fi
+                echo ""
+                read -p "Tekan Enter untuk melanjutkan..."
+                ;;
+            3)
+                log "INFO" "Memeriksa status ${PLUGIN_NAME}..."
+                if [ -f "${plugin_dir}/install.sh" ]; then
+                    echo ""
+                    (cd "$plugin_dir" && bash "install.sh" status)
+                else
+                    log "ERROR" "File install.sh tidak ditemukan untuk plugin ${plugin}"
+                fi
+                echo ""
+                read -p "Tekan Enter untuk melanjutkan..."
+                ;;
+            4)
+                return 0
+                ;;
+            *)
+                echo -e "\n${COLOR_RED}Pilihan tidak valid!${COLOR_RESET}"
+                sleep 1
+                ;;
+        esac
+    done
+}
+
+# Main program
+main() {
+    # Pastikan script dijalankan dengan bash
+    if [ -z "$BASH_VERSION" ]; then
+        echo "Script ini harus dijalankan dengan bash"
+        exit 1
+    fi
+    
+    # Buat direktori cache dan log jika belum ada
+    mkdir -p "$CACHE_DIR"
+    touch "$LOG_FILE"
+    
+    # Periksa apakah dijalankan sebagai root
+    if [ "$EUID" -eq 0 ]; then
+        log "WARNING" "Tidak disarankan menjalankan script ini sebagai root!"
+        read -p "Lanjutkan? [y/N] " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
+    fi
+    
+    # Muat plugin
+    load_plugins
+    
+    # Tampilkan menu utama
+    while true; do
+        show_menu
+        read -p "Pilih opsi (1-$((${#PLUGINS[@]} + 2))): " choice
+        
+        # Validasi input
+        if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
+            echo -e "\n${COLOR_RED}Masukkan angka yang valid!${COLOR_RESET}"
+            sleep 1
+            continue
+        fi
+        
+        if [ "$choice" -ge 1 ] && [ "$choice" -le "${#PLUGINS[@]}" ]; then
+            # Jalankan plugin yang dipilih
+            run_plugin "${PLUGINS[$((choice-1))]}"
+        elif [ "$choice" -eq $((${#PLUGINS[@]} + 1)) ]; then
+            # Perbarui daftar plugin
+            load_plugins
+            echo -e "\n${COLOR_GREEN}Daftar plugin telah diperbarui!${COLOR_RESET}"
+            sleep 1
+        elif [ "$choice" -eq $((${#PLUGINS[@]} + 2)) ]; then
+            # Keluar
+            echo -e "\nTerima kasih telah menggunakan Linux Dev Tool!"
+            exit 0
+        else
+            echo -e "\n${COLOR_RED}Pilihan tidak valid!${COLOR_RESET}"
+            sleep 1
+        fi
+    done
+}
+
+# Jalankan fungsi utama
+main "$@"
