@@ -7,7 +7,7 @@ COLOR_YELLOW='\033[1;33m'
 COLOR_BLUE='\033[0;34m'
 COLOR_RESET='\033[0m'
 
-# Fungsi untuk menampilkan pesan sukses
+# Fungsi untuk menampilkan pesan suksen
 success() {
     echo -e "${COLOR_GREEN}✓ $1${COLOR_RESET}"
 }
@@ -31,8 +31,17 @@ command_exists() {
 install_zsh() {
     if ! command_exists zsh; then
         info "Menginstall Zsh..."
-        sudo apt-get update
-        sudo apt-get install -y zsh
+        if command_exists apt-get; then
+            sudo apt-get update
+            sudo apt-get install -y zsh
+        elif command_exists yum; then
+            sudo yum install -y zsh
+        elif command_exists dnf; then
+            sudo dnf install -y zsh
+        else
+            error "Package manager tidak didukung. Silakan install zsh secara manual."
+            exit 1
+        fi
         
         if [ $? -eq 0 ]; then
             success "Zsh berhasil diinstall"
@@ -62,20 +71,27 @@ install_ohmyzsh() {
     fi
 }
 
-# Fungsi untuk mengatur Zsh sebagai shell default
+# Fungsi untuk mengatur Zsh sebagai shell default (tanpa password)
 set_default_shell() {
     local current_shell=$(basename "$SHELL")
     local zsh_path=$(command -v zsh)
     
     if [ "$current_shell" != "zsh" ]; then
-        info "Mengatur Zsh sebagai shell default..."
+        info "Mencoba mengatur Zsh sebagai shell default..."
         if [ -n "$zsh_path" ]; then
-            chsh -s "$zsh_path" "$USER"
-            success "Zsh telah diatur sebagai shell default"
-            info "Silakan logout dan login kembali untuk menerapkan perubahan"
+            # Coba tanpa sudo dulu
+            if chsh -s "$zsh_path" "$USER" 2>/dev/null; then
+                success "Zsh telah diatur sebagai shell default"
+            else
+                info "Tidak bisa mengubah shell default tanpa password"
+                info "Anda bisa mengubah shell default secara manual dengan perintah:"
+                echo -e "${COLOR_BLUE}chsh -s $(which zsh)${COLOR_RESET}"
+                info "Atau jalankan 'zsh' untuk menggunakan zsh di sesi ini"
+                return 1
+            fi
         else
             error "Zsh tidak ditemukan"
-            exit 1
+            return 1
         fi
     else
         success "Zsh sudah menjadi shell default"
@@ -104,17 +120,21 @@ install_ldt() {
     fi
     
     # Pastikan .zshrc memuat .zsh_aliases
-    if ! grep -q "source \$HOME/.zsh_aliases" "$HOME/.zshrc"; then
+    if [ -f "$HOME/.zshrc" ] && ! grep -q "source \$HOME/.zsh_aliases" "$HOME/.zshrc"; then
         echo -e "\n# Muat alias kustom\nif [ -f ~/.zsh_aliases ]; then\n    . ~/.zsh_aliases\nfi" >> "$HOME/.zshrc"
     fi
     
     # Buat file ldt executable
-    chmod +x "$ldt_path"
-    
-    success "Linux Dev Tool (ldt) siap digunakan"
-    echo -e "\n${COLOR_YELLOW}Untuk menggunakan ldt, jalankan perintah:${COLOR_RESET}"
-echo -e "${COLOR_BLUE}1. source ~/.zshrc${COLOR_RESET} (atau buka terminal baru)"
-echo -e "${COLOR_BLUE}2. ldt --help${COLOR_RESET} untuk melihat daftar perintah"
+    if [ -f "$ldt_path" ]; then
+        chmod +x "$ldt_path"
+        success "Linux Dev Tool (ldt) siap digunakan"
+        echo -e "\n${COLOR_YELLOW}Untuk menggunakan ldt, jalankan perintah:${COLOR_RESET}"
+        echo -e "${COLOR_BLUE}1. source ~/.zshrc${COLOR_RESET} (atau buka terminal baru)"
+        echo -e "${COLOR_BLUE}2. ldt --help${COLOR_RESET} untuk melihat daftar perintah"
+    else
+        error "File linux-dev-tool tidak ditemukan di $ldt_path"
+        return 1
+    fi
 }
 
 # Fungsi utama
@@ -141,7 +161,7 @@ main() {
     
     echo -e "\n${COLOR_GREEN}✓ Instalasi selesai!${COLOR_RESET}"
     echo -e "\n${COLOR_YELLOW}Catatan:${COLOR_RESET}"
-    echo -e "- Anda mungkin perlu ${COLOR_BLUE}logout dan login kembali${COLOR_RESET} untuk menerapkan perubahan shell"
+    echo -e "- Gunakan ${COLOR_BLUE}zsh${COLOR_RESET} untuk memulai sesi zsh"
     echo -e "- Gunakan ${COLOR_BLUE}ldt --help${COLOR_RESET} untuk melihat daftar perintah yang tersedia"
     echo -e "- Untuk pembaruan, cukup jalankan ${COLOR_BLUE}git pull${COLOR_RESET} di direktori ini"
 }
