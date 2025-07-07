@@ -43,6 +43,42 @@ Tool untuk mengatur environment development Linux dengan mudah dan fleksibel men
 
 4. Ikuti petunjuk di layar untuk menyelesaikan instalasi
 
+## Cara Menggunakan
+
+### Menginstal Semua Plugin
+Untuk menginstal semua plugin yang tersedia:
+```bash
+./linux-dev-tool --install-all
+```
+
+### Menginstal Plugin Tertentu
+Untuk menginstal plugin tertentu, gunakan opsi `--install` diikuti dengan nama plugin:
+```bash
+./linux-dev-tool --install nama_plugin
+```
+Contoh:
+```bash
+./linux-dev-tool --install ohmyzsh
+```
+
+### Melihat Daftar Plugin yang Tersedia
+Untuk melihat daftar plugin yang tersedia:
+```bash
+./linux-dev-tool --list
+```
+
+### Menghapus Plugin
+Untuk menghapus plugin yang sudah terinstall:
+```bash
+./linux-dev-tool --remove nama_plugin
+```
+
+### Memeriksa Status Plugin
+Untuk memeriksa status plugin:
+```bash
+./linux-dev-tool --status nama_plugin
+```
+
 ## Plugin Generik
 
 Linux Dev Tool menyediakan sistem plugin generik yang memungkinkan Anda menambahkan package baru hanya dengan membuat file konfigurasi sederhana, tanpa perlu menulis script instalasi manual.

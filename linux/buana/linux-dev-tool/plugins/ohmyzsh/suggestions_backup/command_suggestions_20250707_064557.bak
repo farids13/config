@@ -1,0 +1,2403 @@
+: 1745473198:0;[<0;69;22M0;69;22m1
+: 1745473201:0;1
+: 1745473203:0;ls
+: 1745473205:0;ls
+: 1745473207:0;cd ,,
+: 1745473209:0;cd ..
+: 1745473211:0;ls
+: 1745473213:0;cd ..
+: 1745473214:0;ls
+: 1745473217:0;cd omnichannel
+: 1745473219:0;ls
+: 1745473234:1;sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+: 1745473252:0;sed -i 's/plugins=(git)/plugins=(git docker)/' ~/.zshrc
+: 1745473261:0;source ~/.zshrc
+: 1745473266:0;ls
+: 1745473290:0;cd om 
+: 1745473293:0;cd omnichannel
+: 1745473293:0;ls
+: 1745473600:0;git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+: 1745473619:0;vim ~/.zshrc
+: 1745473661:0;source ~/.zshrc
+: 1745475275:0;ls
+: 1745475279:0;cd legacy
+: 1745475280:0;cd accounting-service
+: 1745475291:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1745498883:0;htop
+: 1745498905:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745499054:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745499171:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745575261:0;ls
+: 1745575263:0;cd legacy
+: 1745575264:0;cd accounting-service
+: 1745575265:0;ls
+: 1745575267:0;mvn clea
+: 1745575274:0;clear
+: 1745575275:0;ls
+: 1745575279:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745816051:0;ls
+: 1745816055:0;pwd
+: 1745816062:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745816259:0;ls
+: 1745816270:0;pwd
+: 1745816280:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745819460:0;htop
+: 1745820950:0;pwd
+: 1745820955:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745821026:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745821504:0;clear
+: 1745821507:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745832977:0;pwd
+: 1745832982:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745833051:0;cd legacy
+: 1745833053:0;cd accounting-service
+: 1745833057:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745833711:0;0;66;7M0;66;7mlsad
+: 1745833714:0;clear
+: 1745833721:0;ping www.google.com 
+: 1745901439:0;git pull origin
+: 1745924744:0;git pull origin 
+: 1745928240:0;ls
+: 1745928242:0;pwd
+: 1745928247:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745928257:0;cd legacy
+: 1745928258:0;cd accounting-service
+: 1745928263:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745928546:0;htop
+: 1745928648:0;mvn clean
+: 1745928771:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745990263:0;0;48;11M0;48;11mhtop
+: 1745990265:0;htop
+: 1745990274:0;clear
+: 1745990276:0;htop
+: 1745993931:0;cd legacy
+: 1745993935:0;cd legacy/
+: 1745993937:0;cd accounting-service
+: 1745993941:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745995944:0;cd ..
+: 1745995945:0;c d..
+: 1745995946:0;ls
+: 1745995951:0;cd -service
+: 1745995952:0;ls
+: 1745995955:0;c d..
+: 1745995955:0;ls
+: 1745995963:0;wpd
+: 1745995965:0;pwd
+: 1745995967:0;cd ..
+: 1745995970:0;ls
+: 1745995992:0;pwd
+: 1745995993:0;ls
+: 1745995998:0;cd service
+: 1745995999:0;ls
+: 1745996001:0;cd organization-service
+: 1745996001:0;ls
+: 1745996009:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1745996017:0;ls
+: 1745996023:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1745996061:0;pwd
+: 1745996070:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746003919:0;ls
+: 1746003934:0;git pull origin 
+: 1746003941:0;cd .
+: 1746003945:0;cd ..
+: 1746003949:0;ls
+: 1746003950:0;pwd
+: 1746004002:0;cd service
+: 1746004013:0;cd authentication-service/ls
+: 1746004031:0;pwd
+: 1746004036:0;cd authentication-service
+: 1746004038:0;ls
+: 1746004046:0;mvn clean insta
+: 1746004052:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746004062:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746004787:0;git checkout -b features/issue-136
+: 1746004796:0;git push 
+: 1746004812:0;git push --set-upstream origin features/issue-136
+: 1746004871:0;git checkout test/authentication-service
+: 1746004880:0;git pull origin 
+: 1746004892:0;git pull origin test/accounting-service
+: 1746004912:0;git rebase --abort
+: 1746010049:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746014061:0;git pull oriign 
+: 1746014067:0;git pull origin
+: 1746014078:0;git cherry-pick fe2419dda8e416ba5b13a762df356471ead82ef9
+: 1746014083:0;git push
+: 1746014293:0;git pull origin
+: 1746014374:0;git puhs
+: 1746014376:0;gi tpush
+: 1746014378:0;git push
+: 1746014382:0;git push --set-upstream origin features/issue-137
+: 1746014405:0;git push --set-upstream origin feature/issue-137
+: 1746018125:0;cd ..
+: 1746018126:0;cd .
+: 1746018128:0;ls
+: 1746018129:0;cd ..
+: 1746018130:0;ls
+: 1746018138:0;cd human-resource-service
+: 1746018139:0;ls
+: 1746018143:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746021381:0;ls
+: 1746021396:0;git pull origin
+: 1746021405:0;git cherry-pick d7062be21ef0e5602628de1ca70148a3049cc4b5
+: 1746021409:0;git push
+: 1746159088:0;ls
+: 1746159089:0;cd legacy
+: 1746159091:0;cd accounting-service
+: 1746159092:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746159139:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 8C
+: 1746159199:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746167735:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746168032:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746176488:0;git pull origin
+: 1746176524:0;git cherry-pick ee81e06c7b1b3486571736d677edeb11f29a3fa3
+: 1746176528:0;git push
+: 1746180832:0;git pull origin
+: 1746180837:0;git pull
+: 1746187432:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746187490:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746187549:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746187785:0;mvn clean install
+: 1746187826:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746418518:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746418531:0;ping svc-mercubuana-human-resouce-service-dev.peentar.dev
+: 1746418542:0;ping https://svc-mercubuana-notification-service-dev.peentar.dev/
+: 1746418565:0;ping https://svc-mercubuana-rewrite-accounting-service-dev.peentar.dev/
+: 1746418576:0;ping svc-mercubuana-rewrite-accounting-service-dev.peentar.dev
+: 1746418624:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746418929:0;mvn clean install
+: 1746419030:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746419089:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746419104:0;ping svc-mercubuana-rewrite-accounting-service-dev.peentar.dev
+: 1746419110:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746421157:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746421191:0;mvn clean install
+: 1746421315:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746421375:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746421496:0;mvn clean install
+: 1746421520:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746422439:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746422506:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746425733:0;git chekout test/accounting-service
+: 1746425744:0;git pull origin 
+: 1746425770:0;git cherry-pick 7dd960ab1c01db14309218ce76fcf6744fa0828d
+: 1746425791:0;git cherry-pick --abort
+: 1746425800:0;git pull origin
+: 1746425812:0;git pull origin 
+: 1746425932:0;git cherry-pick 7dd960ab1c01db14309218ce76fcf6744fa0828d
+: 1746426068:0;git cherry-pick abort
+: 1746426073:0;git cherry-pick --abort
+: 1746426097:0;git cherry-pick 7dd960ab1c01db14309218ce76fcf6744fa0828d
+: 1746426801:0;git pull origin 
+: 1746426805:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746426828:0;clear
+: 1746426831:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746427166:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746427196:0;ping svc-mercubuana-rewrite-accounting-service-dev.peentar.dev
+: 1746427210:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746427212:0;ping svc-mercubuana-rewrite-accounting-service-dev.peentar.dev
+: 1746427218:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746427236:0;clear
+: 1746427244:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746427291:0;ping svc-mercubuana-notification-service-dev.peentar.dev
+: 1746434200:0;clear
+: 1746434203:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746435538:0;git checkout test/authentication-service
+: 1746435548:0;git pull origin
+: 1746435556:0;git cherry-pick cd62d0d424d102989002826c3fa54887a19fb144
+: 1746435881:0;clear
+: 1746435889:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746435951:0;clear
+: 1746435955:0;mvn clean spr
+: 1746435965:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746436125:0;git pull origin
+: 1746436302:0;clear
+: 1746436305:0;git branch
+: 1746436324:0;git revert 0690163a55a02d0cc780f7335563bbf60e8ad38e
+: 1746436356:0;git push
+: 1746437195:0;git pull origin
+: 1746437211:0;git cherry-pick cd62d0d424d102989002826c3fa54887a19fb144
+: 1746437220:0;git push
+: 1746437584:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746437684:0;mvn clean install
+: 1746437707:0;mvn clean sp
+: 1746437713:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746437888:0;clear
+: 1746437889:0;netstat -tulnp | grep 8081
+: 1746437906:0;lsof -i :8081
+: 1746437973:0;kill 256735
+: 1746437976:0;lsof -i :8081
+: 1746437984:0;netstat -tulnp | grep 8081
+: 1746437992:0;kill -9 256735
+: 1746437994:0;netstat -tulnp | grep 8081
+: 1746438000:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746444174:0;clear
+: 1746444175:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746503756:0;ls
+: 1746504247:0;ls -a
+: 1746504257:0;cd .ssh
+: 1746504258:0;ls
+: 1746504262:0;vim authorized_keys
+: 1746504614:0;htop
+: 1746504630:0;ls
+: 1746504706:0;vim authorized_keys
+: 1746504870:0;ls
+: 1746505638:0;lsa
+: 1746505641:0;lsa 0a
+: 1746505642:0;lsa -a
+: 1746505646:0;ls -a
+: 1746508853:0;git pull origin
+: 1746517392:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746517426:0;mvn clean install
+: 1746517469:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746517525:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746521928:0;clear
+: 1746521934:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746531561:0;l
+: 1746531562:0;ls
+: 1746531632:0;htop
+: 1746591032:0;ls
+: 1746592374:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746592392:0;git pull origin
+: 1746592398:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746592454:0;git pull origin
+: 1746592458:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746592463:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746592469:0;ls
+: 1746592470:0;cd legacy
+: 1746592471:0;cd accounting-service
+: 1746592473:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746611941:0;ls
+: 1746611943:0;cd omnichannel
+: 1746611944:0;ls
+: 1746612074:0;htop
+: 1746612232:0;dokcer ps
+: 1746612236:0;docker ps
+: 1746612328:0;mvn -Pnative native:compile
+: 1746612366:0;ls
+: 1746612373:0;mvn -Pnative native:compile
+: 1746612485:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746612490:0;clear
+: 1746612494:0;la
+: 1746612496:0;ls
+: 1746612497:0;la
+: 1746612499:0;clear
+: 1746612501:0;./mvnw -Pnative -s .m2/settings.xml -DskipTests=true -T 4C native:compile
+: 1746612535:0;mvnw -Pnative -s .m2/settings.xml -DskipTests=true -T 4C native:compile
+: 1746612554:0;mvn -Pnative -s .m2/settings.xml -DskipTests=true -T 4C native:compile
+: 1746612576:0;ls
+: 1746614841:0;mvn clean install
+: 1746615528:0;ls
+: 1746615533:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746615585:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746615593:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746615678:0;mvn clean 
+: 1746615685:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746615828:0;mvn clean install
+: 1746615999:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746616037:0;ls
+: 1746616038:0;pwd
+: 1746616043:0;cd legacy
+: 1746616045:0;cd accounting-service
+: 1746616047:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746616658:0;wget https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.1/graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz
+: 1746616702:0;ls
+: 1746616748:0;mkdir -p $HOME/.graalvm
+: 1746616749:0;ls
+: 1746616758:0;tar -xzf graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz -C $HOME/.graalvm
+: 1746616769:0;cd .graalvm
+: 1746616770:0;ls
+: 1746616776:0;cd ..
+: 1746616785:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-jdk-21.0.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"\
+
+: 1746616794:0;source ~/.bashrc    # or source ~/.zshrc
+: 1746616826:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-jdk-21.0.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"\
+
+: 1746616831:0;source ~/.zshrc
+: 1746616837:0;java -version\
+gu --version\
+
+: 1746616859:0;vim ~/.zshrc
+: 1746616879:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-jdk-21.0.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"
+: 1746616907:0;ls $GRAALVM_HOME/bin
+: 1746616917:0;ls
+: 1746616923:0;cd .graalvm
+: 1746616924:0;ls
+: 1746616947:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-openjdk-21.0.1+12.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"\
+
+: 1746616949:0;cd ..
+: 1746616951:0;source ~/.zshrc
+: 1746616954:0;ls $GRAALVM_HOME/bin
+: 1746616964:0;which gu
+: 1746616967:0;gu
+: 1746616974:0;source ~/.zshrc
+: 1746616977:0;gu
+: 1746616985:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-openjdk-21.0.1+12.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"\
+
+: 1746616989:0;ls
+: 1746616999:0;rm graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz 
+: 1746617000:0;ls
+: 1746617004:0;gu
+: 1746617010:0;gu install native-image
+: 1746617040:0;ls -l ~/.graalvm/graalvm-community-openjdk-21.0.1+12.1/bin/gu
+: 1746617046:0;ls
+: 1746617053:0;cd .graalvm
+: 1746617054:0;ls
+: 1746617056:0;cd graalvm-community-openjdk-21.0.1+12.1
+: 1746617057:0;ls
+: 1746617101:0;cd ..
+: 1746617104:0;ls
+: 1746617109:0;rm -rf .graalvm
+: 1746617111:0;mkdir -p ~/.graalvm\
+cd ~/.graalvm\
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.1/graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz\
+tar -xvzf graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz
+: 1746617131:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-jdk-21.0.1"\
+export PATH="$GRAALVM_HOME/bin:$PATH"\
+
+: 1746617135:0;source ~/.zshrc
+: 1746617140:0;gu --version\
+gu install native-image\
+
+: 1746617228:0;ls $HOME/.graalvm/graalvm-community-jdk-21.0.1/bin
+: 1746617232:0;ls
+: 1746617261:0;export GRAALVM_HOME="$HOME/.graalvm/graalvm-community-jdk-21.0.1+12.1"
+: 1746617266:0;export PATH="$GRAALVM_HOME/bin:$PATH"
+: 1746617273:0;source ~/.zshrc
+: 1746617284:0;gu --version\
+gu install native-image\
+
+: 1746617290:0;ls
+: 1746617296:0;ls $HOME/.graalvm/graalvm-community-jdk-21.0.1/bin
+: 1746617301:0;ls
+: 1746617313:0;ls graalvm-community-openjdk-21.0.1+12.1/
+: 1746617316:0;ls
+: 1746617321:0;cd graalvm-community-openjdk-21.0.1+12.1
+: 1746617322:0;ls
+: 1746617376:0;cd ..
+: 1746617378:0;cd .
+: 1746617379:0;ls
+: 1746617381:0;cd .
+: 1746617382:0;cd ..
+: 1746617382:0;ls
+: 1746617387:0;which gu
+: 1746617424:0;java -version\
+gu --version\
+
+: 1746617461:0;ls
+: 1746617462:0;cd ..
+: 1746617465:0;ls
+: 1746617474:0;cd dev-satria
+: 1746617478:0;ls
+: 1746617486:0;rm -rf .graalvm
+: 1746617491:0;wget https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
+: 1746617565:0;mkdir -p ~/.local/opt/jvm
+: 1746617569:0;ls .local
+: 1746617570:0;ls
+: 1746617611:0;tar -xzf graalvm-jdk-21_linux-x64_bin.tar.gz -C ~/.local/opt/jvm
+: 1746617629:0;# GraalVM configuration for local user\
+export GRAALVM_HOME=~/.local/opt/jvm/graalvm-jdk-21.0.1+12.1  # Adjust to exact folder name\
+export PATH=$GRAALVM_HOME/bin:$PATH
+: 1746617636:0;source ~/.zshrc
+: 1746617645:0;java --version
+: 1746617650:0;gu
+: 1746617685:0;curl -s "https://get.sdkman.io" | zsh
+: 1746617711:0;source "$HOME/.sdkman/bin/sdkman-init.zsh"
+: 1746617717:0;# Install SDKMAN! if you don't have it\
+curl -s "https://get.sdkman.io" | zsh\
+source "$HOME/.sdkman/bin/sdkman-init.zsh"\
+\
+# Install GraalVM\
+sdk install java 21-graalce  # Community Edition\
+# or\
+sdk install java 21-graal   # Oracle GraalVM\
+\
+# Set as default\
+sdk default java 21-graalce
+: 1746617738:0;sdk
+: 1746617746:0;source ~/.zshrc
+: 1746617749:0;sdk
+: 1746617751:0;ls
+: 1746617766:0;tar -xzf graalvm-jdk-21_linux-x64_bin.tar.gz
+: 1746617772:0;ls
+: 1746617775:0;cd graalvm-community-openjdk-21.0.1+12.1
+: 1746617780:0;cd graalvm-jdk-21.0.7+8.1/
+: 1746617781:0;ls
+: 1746617783:0;gu
+: 1746617788:0;cd bin
+: 1746617789:0;ls
+: 1746617811:0;gu
+: 1746617815:0;native-mage
+: 1746617819:0;native-image
+: 1746617837:0;cd ..
+: 1746617902:0;mkdir -p ~/graalvm\
+tar -xzf graalvm-jdk-21_linux-x64_bin.tar.gz -C ~/graalvm
+: 1746617912:0;ls ~/graalvm
+: 1746617918:0;echo '\n# GraalVM Configuration' >> ~/.zshrc\
+echo 'export GRAALVM_HOME=~/graalvm/graalvm-jdk-21.0.1+12.1' >> ~/.zshrc\
+echo 'export PATH=$GRAALVM_HOME/bin:$PATH' >> ~/.zshrc\
+source ~/.zshrc
+: 1746617924:0;which java\
+which gu\
+java -version
+: 1746617991:0;vim ~/.zshrc
+: 1746618008:0;source ~/.zshrc
+: 1746618021:0;ls
+: 1746618033:0;which GRALLVM_HOME
+: 1746618058:0;echo $GRAALVM_HOME
+: 1746618067:0;which gu
+: 1746618077:0;ls -l $GRAALVM_HOME/bin
+: 1746618097:0;ls
+: 1746618103:0;cd graalvm
+: 1746618104:0;ls
+: 1746618107:0;cd graalvm-jdk-21.0.7+8.1/
+: 1746618108:0;ls
+: 1746618112:0;cd bin
+: 1746618112:0;ls
+: 1746618115:0;cd ..
+: 1746618117:0;ls
+: 1746618119:0;cd ..
+: 1746618120:0;ls
+: 1746618125:0;gu list
+: 1746618147:0;curl -s "https://get.sdkman.io" | zsh\
+source "$HOME/.sdkman/bin/sdkman-init.zsh"\
+sdk install java 21-graalce\
+sdk default java 21-graalce
+: 1746618165:0;sdk selfupdate force
+: 1746618179:0;source "$HOME/.sdkman/bin/sdkman-init.zsh"
+: 1746618192:0;curl -s "https://get.sdkman.io"
+: 1746618202:0;source "$HOME/.sdkman/bin/sdkman-init.zsh"
+: 1746618211:0;source "$HOME/.sdkman/bin"
+: 1746618220:0;ls
+: 1746618258:0;java --version
+: 1746678631:0;pwd
+: 1746678636:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1746678803:0;ls
+: 1746685349:0;cd legacy
+: 1746685351:0;cd accounting-service
+: 1746685352:0;ls
+: 1746685355:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1746775740:0;ls
+: 1746775742:0;cd legacy
+: 1746775743:0;cd accounting-service
+: 1746775747:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747117800:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747117961:0;cd lega
+: 1747117965:0;cd legacy
+: 1747117967:0;cd accounting-service
+: 1747117971:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747129006:0;ls
+: 1747129009:0;cd ..
+: 1747129010:0;pwd
+: 1747129011:0;ls
+: 1747129012:0;cd ..
+: 1747129016:0;ls
+: 1747129018:0;cd service
+: 1747129019:0;ls
+: 1747129021:0;cd accounting-service
+: 1747129024:0;cd //
+: 1747129025:0;cd ..
+: 1747129026:0;ls
+: 1747129031:0;cd use
+: 1747129034:0;cd usr
+: 1747129035:0;;s
+: 1747129036:0;ls
+: 1747129041:0;cd ..
+: 1747129042:0;ls
+: 1747129049:0;cd home
+: 1747129050:0;ls
+: 1747129053:0;cd dev
+: 1747129054:0;ls
+: 1747129058:0;cd ~
+: 1747129059:0;ls
+: 1747129062:0;cd omnichannel
+: 1747129062:0;ls
+: 1747129065:0;cd service
+: 1747129066:0;ls
+: 1747129073:0;cd authentication-service
+: 1747129074:0;ls
+: 1747129077:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747132020:0;ls
+: 1747132022:0;cd legacy
+: 1747132023:0;cd ac
+: 1747132024:0;;s
+: 1747132026:0;cd accounting-service
+: 1747132028:0;ls
+: 1747132030:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747133684:0;sudo netstat -tulpn | grep :8081
+: 1747133701:0;netstat -tulnp | grep 8081
+: 1747133716:0;kill -9 2204654
+: 1747133729:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747205820:0;ls
+: 1747205839:0;cd ..
+: 1747205839:0;ls
+: 1747205862:0;git clone https://github.com/farids13/portfolio 
+: 1747205869:0;ls
+: 1747205885:0;cd porto
+: 1747205890:0;cd portfoilio
+: 1747205894:0;cd portfolio
+: 1747205896:0;ls
+: 1747205900:0;code .
+: 1747205905:0;windsurf .
+: 1747206044:0;ls
+: 1747206048:0;npm install
+: 1747206092:0;npm run dev
+: 1747206106:0;ls
+: 1747206110:0;next
+: 1747206115:0;npm run dev
+: 1747216463:0;mvn --version
+: 1747216970:0;htop
+: 1747313705:0;git pull origin
+: 1747313830:0;pwd
+: 1747313847:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747313862:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747313960:0;cd legacy
+: 1747313962:0;cd accounting-service
+: 1747313968:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747366698:0;htop
+: 1747367503:0;ls
+: 1747367509:0;cd legacy
+: 1747367511:0;cd accounting-service
+: 1747367511:0;ls
+: 1747367518:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747367579:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747367650:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1747378953:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747378974:0;ls
+: 1747378979:0;cd legacy
+: 1747378980:0;cd accounting-service
+: 1747378981:0;ls
+: 1747379755:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747380822:0;git pull origin
+: 1747381639:0;ls
+: 1747381642:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747384930:0;git pull origin 
+: 1747384985:0;ls
+: 1747385038:0;cd legacy
+: 1747385040:0;cd accounting-service
+: 1747385043:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747630288:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747630295:0;dir
+: 1747630300:0;cd service
+: 1747630301:0;dir
+: 1747630306:0;cd organization-service
+: 1747630313:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747630492:0;git pull origin
+: 1747630511:0;git cherry-pick 1796cc30523017b2323ec5fb4a03abb7a1e271cb
+: 1747630522:0;git push
+: 1747630527:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747637185:0;git pull origin 
+: 1747637187:0;cd ..
+: 1747637189:0;ls
+: 1747637191:0;cd legacy
+: 1747637193:0;cd accounting-service
+: 1747637198:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747639217:0;git pull origin 
+: 1747642174:0;ls
+: 1747642175:0;pwd
+: 1747642189:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747716588:0;ls
+: 1747716591:0;cd legacy
+: 1747716592:0;cd accounting-service
+: 1747716595:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747716634:0;cd ..
+: 1747716637:0;ls
+: 1747716639:0;cd omnichannel
+: 1747716641:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747716927:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747722995:0;cd ..
+: 1747722996:0;ls
+: 1747723000:0;cd ..
+: 1747723001:0;ls
+: 1747723003:0;cd notification-service
+: 1747723004:0;ls
+: 1747723007:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747723500:0;ls
+: 1747727319:0;pwd
+: 1747727322:0;cd ..
+: 1747727322:0;ls
+: 1747727361:0;mvn clean install
+: 1747727554:0;mvn clean compile
+: 1747727826:0;mvn clean 
+: 1747727857:0;mvn clean install compile package  -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747727999:0;ls
+: 1747728000:0;pwd
+: 1747728001:0;cd legacy
+: 1747728002:0;cd accounting-service
+: 1747728005:0;mvn clean install
+: 1747728205:0;htop
+: 1747728968:0;mvn clean install
+: 1747730449:0;mvn clean 
+: 1747730455:0;mvn clean install
+: 1747739620:0;ls
+: 1747739623:0;mvn clean 
+: 1747740050:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 8C
+: 1747740153:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1747741195:0;cd legacy
+: 1747741197:0;cd accounting-service
+: 1747741201:0;mvn clean install
+: 1747741288:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747744524:0;pwd
+: 1747744675:0;ls
+: 1747744689:0;mkdir lombok
+: 1747744690:0;dir
+: 1747744693:0;ls
+: 1747744701:0;cd lombok
+: 1747744702:0;ls
+: 1747744710:0;wget https://projectlombok.org/downloads/lombok.jar
+: 1747744713:0;ls
+: 1747744725:0;pwd
+: 1747823259:0;ls
+: 1747823261:0;cd legacy
+: 1747823263:0;cd accounting-service
+: 1747823267:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747823820:0;ls
+: 1747823822:0;cd ..
+: 1747823823:0;ls
+: 1747823826:0;cd lombok
+: 1747823826:0;ls
+: 1747823831:0;pwd
+: 1747823838:0;cd ~
+: 1747823841:0;pwd
+: 1747824627:0;htop
+: 1747824633:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747830689:0;git pull origin 
+: 1747831426:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747899774:0;ls
+: 1747899777:0;ls -a
+: 1747899788:0;rm -rf ~/.m2/repository/*
+: 1747899801:0;rm -rf ~/.m2/repository/.cache
+: 1747899813:0;rm -rf ~/.m2/repository/org/projectlombok
+: 1747899819:0;mvn dependency:purge-local-repository
+: 1747899829:0;ls
+: 1747899831:0;cd omnichannel
+: 1747899832:0;mvn dependency:purge-local-repository
+: 1747899964:0;mvn dependency:purge-local-repository -DreResolve=false
+: 1747899979:0;mvn dependency:purge-local-repository -U
+: 1747900032:0;cd /path/to/your/project\
+mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false
+: 1747900046:0;mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false
+: 1747900065:0;mvn clean install
+: 1747900117:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1747900310:0;mvn lombok:delombok
+: 1747900319:0;cd legacy
+: 1747900321:0;cd accounting-service
+: 1747900322:0;mvn lombok:delombok
+: 1747900731:0;java -version
+: 1747901096:0;cd ..
+: 1747901097:0;ls
+: 1747901097:0;cd ..
+: 1747901098:0;ls
+: 1747901099:0;cd ..
+: 1747901100:0;ls
+: 1747901104:0;ls -a
+: 1747901121:0;ls .config
+: 1747901159:0;ls
+: 1747901168:0;rm -rf graalvm-jdk-21.0.7+8.1
+: 1747901174:0;rm -rf graalvm
+: 1747901178:0;rm -rf graalvm-jdk-21_linux-x64_bin.tar.gz
+: 1747901181:0;ls
+: 1747901187:0;rm -rf lombok
+: 1747901192:0;rm -rf database-client-config.zip
+: 1747901194:0;ls
+: 1747901198:0;rm -rf portfolio
+: 1747901200:0;ls
+: 1747901208:0;cd  snap
+: 1747901209:0;ls
+: 1747901212:0;cd ..
+: 1747901213:0;ls
+: 1747901223:0;lsa -a
+: 1747901226:0;ls -a
+: 1747901453:0;ls
+: 1747901470:0;tar -xzf database-client-config.zip
+: 1747901530:0;mv database-client-config.zip backup-database-extension-vscode.zip
+: 1747901531:0;ls
+: 1747901543:0;dir
+: 1747901544:0;ls
+: 1747901547:0;ls -a
+: 1747901556:0;rm -rf .cache
+: 1747901565:0;rm -rf .codeium
+: 1747901574:0;rm -rf .config
+: 1747901582:0;rm -rf .m2
+: 1747901584:0;ls
+: 1747901587:0;ls -a
+: 1747901605:0;ls .local
+: 1747901606:0;ls
+: 1747901612:0;cd .local
+: 1747901612:0;ls
+: 1747901620:0;cd lib
+: 1747901621:0;ls
+: 1747901623:0;cd ..
+: 1747901626:0;ls
+: 1747901634:0;rm -rf .sdkman
+: 1747901642:0;ls -a
+: 1747901651:0;rm -rf .java
+: 1747901652:0;ls
+: 1747901655:0;ls -a
+: 1747901709:0;rm -rf .dbclient
+: 1747901721:0;rm -rf .dotnet
+: 1747901748:0;rm -rf .sqlsecrets
+: 1747901756:0;rm -rf .vscode-server
+: 1747901785:0;rm -rf .codeium
+: 1747901797:0;rm -rf .lemminx
+: 1747901805:0;rm -rf .npm
+: 1747901810:0;ls -a
+: 1747901819:0;cd .pro
+: 1747901825:0;cd .profile
+: 1747901828:0;ls -a
+: 1747901849:0;cd .profile
+: 1747901861:0;ls .profile
+: 1747901869:0;cd .profile
+: 1747901875:0;lsa
+: 1747901908:0;rm -rf .windsurf-server
+: 1747901925:0;lsa
+: 1747909889:0;ls
+: 1747909895:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1747909911:0;cd legacy
+: 1747909913:0;cd accounting-service
+: 1747909920:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747910975:0;cd legacy
+: 1747910978:0;cd accounting-service
+: 1747910979:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747911114:0;cd ..
+: 1747911117:0;ls
+: 1747911119:0;cd omnichannel
+: 1747911119:0;ls
+: 1747911125:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1747913416:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747920102:0;git pull origgin
+: 1747920125:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1747920646:0;cd legacy
+: 1747920648:0;cd accounting-service
+: 1747920651:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747972862:0;git pull origin
+: 1747983609:0;cd legacy
+: 1747983611:0;cd accounting-service
+: 1747983614:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747984006:0;A
+: 1747984011:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1747990252:0;htop
+: 1747996115:0;ls
+: 1747996153:0;git status
+: 1747996157:0;git pull origin
+: 1747999059:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748232129:0;ls
+: 1748232134:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748232148:0;htop
+: 1748232159:0;ls
+: 1748234775:0;ollama
+: 1748234780:0;ollama --version
+: 1748234852:0;ollama list
+: 1748234898:0;ollama pull qwen3:8b
+: 1748234936:0;htop
+: 1748235301:0;cd legacy
+: 1748235302:0;cd accounting-service
+: 1748235303:0;ls
+: 1748235308:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748236623:0;ls
+: 1748236627:0;ollama list
+: 1748236644:0;ollama run qwen3:8b
+: 1748241288:0;ls
+: 1748241305:0;clear
+: 1748241307:0;quit
+: 1748241308:0;ls
+: 1748241372:0;:quit
+: 1748241373:0;ls
+: 1748242514:0;find ~ -name "lombok.jar"
+: 1748242536:0;ls
+: 1748242540:0;cd .loc
+: 1748242543:0;cd .lcoal
+: 1748242546:0;cd .local
+: 1748242547:0;ls
+: 1748242549:0;ls -a
+: 1748242555:0;cd .local
+: 1748242559:0;find ~ -name "lombok.jar"
+: 1748242564:0;lsa
+: 1748242578:0;ls
+: 1748242579:0;pwd
+: 1748242581:0;cd ..
+: 1748242582:0;ls
+: 1748242584:0;ls -a
+: 1748242586:0;cd .local
+: 1748242587:0;ls
+: 1748242596:0;cd share
+: 1748242597:0;ls
+: 1748242606:0;rm -rf TabNine
+: 1748242609:0;cd ..
+: 1748242610:0;c d..
+: 1748242611:0;cd ..
+: 1748242612:0;ls
+: 1748242613:0;/home/dev-satria/.local/share/TabNine/language-servers/bundled_java/1.24.0/lib/app/lombok.jar
+: 1748242618:0;find ~ -name "lombok.jar"
+: 1748244500:0;ls
+: 1748244504:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748244995:0;ls
+: 1748245453:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748249378:0;ls
+: 1748333377:0;htop
+: 1748336596:0;ls
+: 1748336600:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748336609:0;cd legacy
+: 1748336611:0;cd accounting-service
+: 1748336612:0;ls
+: 1748336617:0;pwd
+: 1748336633:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748336648:0;ls
+: 1748339296:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748339979:0;ls
+: 1748339984:0;ping www.google.com 
+: 1748340644:0;ls
+: 1748340647:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748344660:0;ls
+: 1748344666:0;gut status
+: 1748344669:0;git status
+: 1748344677:0;git pull
+: 1748344684:0;git push
+: 1748399565:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748407466:0;ls
+: 1748407479:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748407550:0;netstat -tulnp | grep 8081
+: 1748407559:0;kill -9 2014397
+: 1748407568:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748411040:0;git pull
+: 1748411043:0;git push
+: 1748429133:0;ls
+: 1748429301:0;git clone https://kf-gitlab.buaya.dev/peentar/mercubuana/omnichannel.git new_omni
+: 1748430452:0;ls
+: 1748431161:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748431166:0;ls
+: 1748431171:0;pwd
+: 1748431178:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748432901:0;ls
+: 1748432917:0;cd legacy
+: 1748432918:0;ls
+: 1748432921:0;cd ..
+: 1748433025:0;git pull origin
+: 1748439633:0;git remote 0v
+: 1748439635:0;git remote -v
+: 1748439639:0;git status
+: 1748439665:0;ls
+: 1748439673:0;rm -rf new_omni
+: 1748439679:0;ls
+: 1748439746:0;git clone https://kf-gitlab.buaya.dev/peentar/mercubuana/omnichannel.git new_omni
+: 1748439750:0;ls
+: 1748439771:0;cd new_omni
+: 1748439777:0;cursor .
+: 1748439923:0;git pull origin
+: 1748442340:0;ls
+: 1748442859:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748445401:0;cd service
+: 1748445401:0;ls
+: 1748445404:0;cd human-resource-service
+: 1748445409:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748446770:0;ls
+: 1748446932:0;git status
+: 1748446935:0;git pull origin 
+: 1748478853:0;git cherry-pick 1796cc30523017b2323ec5fb4a03abb7a1e271cb
+: 1748478935:0;git cherry-pick --abort
+: 1748478975:0;git cherry-pick 379be2a1b033091796cf4685e7234e84d6d4f571
+: 1748482861:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748483024:0;cd library
+: 1748483028:0;cd oa-shared-data
+: 1748483034:0;mvn clean install
+: 1748484591:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748485384:0;mvn clean install
+: 1748485454:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748485991:0;cd ..
+: 1748485994:0;ls
+: 1748486000:0;pwd
+: 1748486011:0;cd service
+: 1748486016:0;cd human-resource-service
+: 1748486059:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748486235:0;netstat -tulnp | grep 8081
+: 1748486272:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748486289:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -Umvn clesclear
+: 1748486496:0;pwd
+: 1748486501:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -Umvn clesclear
+: 1748486507:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748486546:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748486895:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748486925:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748487154:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748487502:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748487573:0;ls
+: 1748487580:0;htops
+: 1748487582:0;htop
+: 1748487596:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748487660:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748487761:0;mvn clean 
+: 1748487767:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748488139:0;pwd
+: 1748488144:0;cd service
+: 1748488146:0;cd human-resource-service
+: 1748488150:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748489023:0;mvn clean 
+: 1748489028:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748489035:0;mvn clean
+: 1748489051:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"\
+
+: 1748489111:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748490461:0;ls
+: 1748490478:0;pwd
+: 1748490495:0;cd service
+: 1748490499:0;ls
+: 1748490502:0;cd human-resource-service
+: 1748490502:0;l
+: 1748490504:0;sls
+: 1748490505:0;ls
+: 1748490531:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748490608:0;cd ..
+: 1748490611:0;ls
+: 1748490614:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748490644:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748491171:0;git rebase -i HEAD~2
+: 1748491253:0;git push --force origin feature/hr-service/issue-147
+: 1748517757:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748535858:0;ls
+: 1748535872:0;cd legacy
+: 1748535873:0;ls
+: 1748535898:0;cd ..
+: 1748535901:0;cd service
+: 1748535902:0;cd human-resource-service
+: 1748535906:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748535938:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748535984:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748536035:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748536050:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748536082:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748536092:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748536107:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748536127:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748536315:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748536334:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748536999:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748537016:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748537129:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748537144:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748537215:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1748537226:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748537236:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1748537251:0;0;49;14M0;49;14mls
+: 1748537252:0;ls
+: 1748537255:0;cd new_omni
+: 1748537256:0;ls
+: 1748537260:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1748537296:0;ls
+: 1748537298:0;cd new_omni
+: 1748537299:0;ls
+: 1748537330:0;0;42;16M0;42;16m
+: 1748537333:0;clear
+: 1748537337:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1748537362:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748537432:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748537958:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748538071:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748538186:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C -U
+: 1748538211:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748538471:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 10C -U
+: 1748538490:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748539052:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T -U
+: 1748539060:0;mvn clean install -s .m2/settings.xml -DSkipTests=true  -U
+: 1748539109:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748539145:0;mvn clean install -s .m2/settings.xml -DSkipTests=true  -U
+: 1748568105:0;ls
+: 1748568108:0;pwd
+: 1748568114:0;mvn clean install -s .m2/settings.xml -DSkipTests=true  -U
+: 1748568122:0;cd service
+: 1748568123:0;cd human-resource-service
+: 1748569061:0;mvn dependency:tree -f service/human-resource-service/pom.xml
+: 1748569171:0;mvn help:effective-pom -f service/human-resource-service/pom.xml\
+
+: 1748569194:0;mvn clean install -s .m2/settings.xml -DSkipTests=true  -U -f
+: 1748569204:0;mvn clean install -f -s .m2/settings.xml -DSkipTests=true 
+: 1748569219:0;mvn clean install -s .m2/settings.xml -DSkipTests=true 
+: 1748569272:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748569913:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748571529:0;clear
+: 1748571533:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748571644:0;git rebase -i HEAD~2
+: 1748571669:0;git push --force origin feature/hr-service/issue-147
+: 1748584735:0;npm --version
+: 1748584746:0;npm install -g gitlab-ci-local\
+
+: 1748662393:0;htop
+: 1748662752:0;ls
+: 1748664050:0;ping 1.1.1.1
+: 1748664058:0;ls
+: 1748664108:0;htop
+: 1748702690:0;git log -oneline
+: 1748702699:0;git log --oneline
+: 1748702711:0;git pull origin
+: 1748703103:0;htop
+: 1748703211:0;git pull origin 
+: 1748703393:0;git pull origin
+: 1748704183:0;htop
+: 1748704209:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748704352:0;ls
+: 1748704364:0;cd student-service
+: 1748704366:0;ls
+: 1748704369:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748704380:0;java --version
+: 1748704416:0;ls
+: 1748704420:0;mvn clean
+: 1748704427:0;mvn clean install
+: 1748704555:0;ls
+: 1748704571:0;pwd
+: 1748704588:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748704744:0;cd student-service
+: 1748704745:0;ls
+: 1748704752:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.xml\
+
+: 1748704761:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081" -s ../../.m2/settings.\
+
+: 1748704770:0;clear
+: 1748704788:0;ls
+: 1748704789:0;cd omnichannel
+: 1748704789:0;ls
+: 1748704791:0;cd student-service
+: 1748704792:0;ls
+: 1748704799:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748705221:0;git pull origin
+: 1748705245:0;git rebase -i HEAD~3
+: 1748705281:0;git status
+: 1748705284:0;git pull origin
+: 1748705294:0;git rebase -i HEAD~3
+: 1748705302:0;git reabse --abort
+: 1748705313:0;git rebase --abort
+: 1748705327:0;git reabse -HEAD~3
+: 1748705333:0;git reabse -i HEAD~3
+: 1748705338:0;git rebase -i HEAD~3
+: 1748705362:0;git push --force origin feature/hr-service/issue-147
+: 1748705426:0;git pull origin
+: 1748705473:0;git pull
+: 1748705494:0;git push
+: 1748705500:0;git push --set-upstream origin feature/student-service/issue-148
+: 1748705564:0;git pull origin
+: 1748705592:0;ls
+: 1748705595:0;pwd
+: 1748705598:0;cd ..
+: 1748705599:0;ls
+: 1748705715:0;cd service
+: 1748705716:0;ls
+: 1748705718:0;cd student-service
+: 1748705718:0;ls
+: 1748705720:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748705734:0;ls
+: 1748705743:0;pwd
+: 1748705745:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748708531:0;cd service
+: 1748708534:0;cd ..
+: 1748708538:0;ls
+: 1748708540:0;cd service
+: 1748708540:0;ls
+: 1748708546:0;cd student-service
+: 1748708546:0;ls
+: 1748708549:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748743550:0;ls
+: 1748743552:0;cd omnichannel
+: 1748743552:0;ls
+: 1748743555:0;git status
+: 1748743561:0;git pull 
+: 1748743614:0;ls
+: 1748743618:0;pwd
+: 1748743626:0;git log --oneline --graph
+: 1748743638:0;git log --oneline --graph --all
+: 1748744442:0;git pull
+: 1748744574:0;git pull 
+: 1748744633:0;git push origin --delete feature/issue-147
+: 1748744653:0;git checkout feature/modernize
+: 1748744691:0;git branch -d feature/issue-147
+: 1748744697:0;git branch -D feature/issue-147
+: 1748744791:0;git pull origin
+: 1748745208:0;git log --oneline --graph --all
+: 1748745218:0;ls
+: 1748745220:0;git pull origin
+: 1748745244:0;git status
+: 1748745261:0;git pull origin
+: 1748745309:0;git pull
+: 1748852328:0;ls
+: 1748852367:0;git pull origin 
+: 1748853589:0;ls
+: 1748853595:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748853624:0;git pull origin 
+: 1748853627:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748853661:0;cd service
+: 1748853663:0;cd stu
+: 1748853666:0;cd student-service
+: 1748853670:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748853727:0;ls
+: 1748853730:0;cd ..
+: 1748853732:0;ls
+: 1748853755:0;mvn verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout=600 -Dsonar.projectKey=peentar_peentarx_omnichannel_5ff93575-02d8-4786-8321-6dda0c71a950 -Dsonar.projectName=Omnichannel  -T 2C -s .m2/settings.xml
+: 1748853932:0;git pull origin 
+: 1748854320:0;mvn sonar:sonar \\
+  -Dsonar.login=sqp_5cbc8de46bb180aa8f475e77a0406fd439fd18f8 \\
+  -Dsonar.host.url=https://sonarqube.peentar.dev 
+: 1748854576:0;ls
+: 1748854578:0;cd service
+: 1748854581:0;cd ..
+: 1748854585:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748854712:0;cd service
+: 1748854714:0;ls
+: 1748854716:0;cd student-service
+: 1748854717:0;ls
+: 1748854723:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748854739:0;mvn clean install
+: 1748854751:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748856553:0;pwd
+: 1748856554:0;ls
+: 1748856555:0;cd ..
+: 1748856557:0;ls
+: 1748856563:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748856594:0;cd service
+: 1748856597:0;cd student-service
+: 1748856606:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748857600:0;git rebase -i HEAD~6
+: 1748857709:0;git push --force origin feature/student-service/issue-148
+: 1748857761:0;git pull origin 
+: 1748857796:0;mvn sonar:sonar \\
+  -Dsonar.login=sqp_5cbc8de46bb180aa8f475e77a0406fd439fd18f8 \\
+  -Dsonar.host.url=https://sonarqube.peentar.dev 
+: 1748857837:0;mvn verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout=600 -Dsonar.projectKey=peentar_peentarx_omnichannel_5ff93575-02d8-4786-8321-6dda0c71a950 -Dsonar.projectName=Omnichannel  -T 2C -s .m2/settings.xml
+: 1748857842:0;ls
+: 1748857843:0;pwd
+: 1748857845:0;cd ..
+: 1748857847:0;ls
+: 1748857848:0;mvn verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout=600 -Dsonar.projectKey=peentar_peentarx_omnichannel_5ff93575-02d8-4786-8321-6dda0c71a950 -Dsonar.projectName=Omnichannel  -T 2C -s .m2/settings.xml
+: 1748857863:0;ls
+: 1748857867:0;cd new_omni
+: 1748857868:0;ls
+: 1748857873:0;mvn verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout=600 -Dsonar.projectKey=peentar_peentarx_omnichannel_5ff93575-02d8-4786-8321-6dda0c71a950 -Dsonar.projectName=Omnichannel  -T 2C -s .m2/settings.xml
+: 1748857980:0;mvn sonar:sonar \\
+  -Dsonar.login=sqp_5cbc8de46bb180aa8f475e77a0406fd439fd18f8 \\
+  -Dsonar.host.url=https://sonarqube.peentar.dev
+: 1748859200:0;pwd
+: 1748859214:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748860059:0;ls
+: 1748860062:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748860065:0;ls
+: 1748860066:0;pwd
+: 1748860067:0;cd service
+: 1748860070:0;cd student-service
+: 1748860070:0;ls
+: 1748860072:0;mvn clean spr
+: 1748860079:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748919494:0;ls
+: 1748919497:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748919503:0;ls
+: 1748919505:0;cd service
+: 1748919512:0;cd student-service
+: 1748919515:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748920011:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748920185:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748920342:0;mvn test -Dtest=RateTypeControllerTest\
+
+: 1748920671:0;mvn clean test
+: 1748920731:0;mvn test -Dtest=RateTypeControllerTest\
+
+: 1748920749:0;clear
+: 1748920752:0;mvn clean test
+: 1748920960:0;ls
+: 1748920963:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748921057:0;git pull origin 
+: 1748921063:0;git status
+: 1748921218:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748921478:0;ls
+: 1748921479:0;pwd
+: 1748921481:0;ls
+: 1748921483:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748921490:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748921779:0;ls
+: 1748921784:0;git pull origin
+: 1748921795:0;ls
+: 1748921798:0;git pul origin 
+: 1748921800:0;git pull origin 
+: 1748921865:0;git status
+: 1748921871:0;git push -tag
+: 1748921881:0;git push --tag
+: 1748929935:0;ls
+: 1748929936:0;pwd
+: 1748929942:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748931431:0;ls
+: 1748931435:0;cd service
+: 1748931437:0;cd partner-service
+: 1748931437:0;ls
+: 1748931440:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748932476:0;mvn clean test
+: 1748932502:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748932582:0;ls
+: 1748932584:0;cd service
+: 1748932592:0;cd -service
+: 1748932593:0;ls
+: 1748932595:0;cd -service
+: 1748932595:0;ls
+: 1748932601:0;cd partner-service
+: 1748932606:0;mvn clean test
+: 1748937973:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748946689:0;ls
+: 1748946691:0;pwd
+: 1748946694:0;cd ..
+: 1748946697:0;ls
+: 1748946698:0;cd partner-service
+: 1748946701:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748949953:0;mvn clean test
+: 1748950514:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748952478:0;ls
+: 1748952482:0;pwd
+: 1748952487:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1748952491:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1748958153:0;git pull origin 
+: 1748959983:0;git log --oneline --graph --all
+: 1749010575:0;ls
+: 1749010577:0;cd address-service
+: 1749010579:0;cd ..
+: 1749010583:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749010662:0;ls
+: 1749010664:0;pwd
+: 1749010668:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749011173:0;ls
+: 1749011176:0;cd address-service
+: 1749011179:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749015245:0;git branch
+: 1749015266:0;git branch -m featue/organization-service/issue-155
+: 1749015290:0;git branch --help
+: 1749017407:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749017693:0;pwd
+: 1749017797:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749020174:0;cd service
+: 1749020176:0;cd organization-service
+: 1749020179:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749020429:0;source "/home/dev-satria/.cursor-server/cli/servers/Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh"
+: 1749020429:0;. "/home/dev-satria/.cursor-server/cli/servers/Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh"
+: 1749020641:0;ls
+: 1749020647:0;mvn clean sp
+: 1749020651:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749020679:0;ls
+: 1749020683:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749020706:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749020899:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749020960:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749021330:0;mvn clean install
+: 1749021347:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749021807:0;ls
+: 1749021906:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749022043:0;mvn clean
+: 1749022050:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749022523:0;ls
+: 1749022346:185;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749022535:0;ls
+: 1749022536:0;cd organization-service
+: 1749022537:0;ls
+: 1749022540:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749022554:0;ls
+: 1749022557:0;xs ..
+: 1749022560:0;cd ..
+: 1749022560:0;la
+: 1749022567:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749022780:0;ls
+: 1749022788:0;cd service
+: 1749022790:0;cd organization-service
+: 1749022794:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749022866:0;ls
+: 1749022892:0;htop
+: 1749023049:0;cd ..
+: 1749023050:0;ls
+: 1749023052:0;cd human-resource-service
+: 1749023055:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749023183:0;netstat -tulnp | grep 8081
+: 1749023195:0;kill -9 2006437
+: 1749023197:0;ls
+: 1749023200:0;netstat -tulnp | grep 8081
+: 1749023214:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749023376:0;ls
+: 1749023378:0;cd ..
+: 1749023379:0;cd organization-service
+: 1749023383:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749023497:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749023519:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749023615:0;cd par
+: 1749023623:0;cd ..
+: 1749023626:0;cd partner-service
+: 1749023630:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749024265:0;ls
+: 1749024266:0;cd or
+: 1749024268:0;cd ..
+: 1749024270:0;cd organization-service
+: 1749024274:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749024457:0;ls
+: 1749024459:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749025296:0;mvn clean test
+: 1749031709:0;ls
+: 1749031712:0;mvn clean test
+: 1749031795:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749032685:0;mvn clean test
+: 1749033009:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749033074:0;mvn clean sp
+: 1749033079:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749033216:0;mvn clean test
+: 1749034440:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 2C
+: 1749034447:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749034549:0;git rebase -i HEAD~2
+: 1749034572:0;git push --force
+: 1749034789:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749038470:0;ls
+: 1749038557:0;mvn clean test
+: 1749038572:0;ls
+: 1749038575:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749042791:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749098634:0;ls
+: 1749098639:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749099452:0;ls
+: 1749099465:0;mvn clean 
+: 1749099472:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749099522:0;ls
+: 1749099525:0;cd notification-service
+: 1749099526:0;ls
+: 1749099532:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749099686:0;git pull origin 
+: 1749101540:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749102763:0;ls
+: 1749102767:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749102813:0;cd service
+: 1749102814:0;cd notification-service
+: 1749102817:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749102926:0;. "\home\dev-satria\.cursor-server\bin\53b99ce608cba35127ae3a050c1738a959750860\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+: 1749102926:0;source "\home\dev-satria\.cursor-server\bin\53b99ce608cba35127ae3a050c1738a959750860\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-rc.zsh"
+: 1749102928:0;curl -k https://bvk-dev-elastic01.peentar.dev
+: 1749102932:0;q
+: 1749102989:0;ls
+: 1749102995:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749103008:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749103112:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749103175:0;ls
+: 1749103184:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749103539:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749103811:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749104012:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749104096:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749104187:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749104377:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749104382:0;clear
+: 1749104385:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749104425:0;ls
+: 1749104425:0;s
+: 1749104426:0;ls
+: 1749104428:0;htop
+: 1749104502:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749105012:0;mvn test
+: 1749105462:0;ls
+: 1749105470:0;mvn clean test
+: 1749105677:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749105798:0;mvn clean test
+: 1749106339:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749106362:0;mvn clean test
+: 1749106372:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749440424:0;ls
+: 1749440429:0;git pull origin 
+: 1749440518:0;git pull origin
+: 1749441124:0;ls
+: 1749441127:0;pwd
+: 1749441132:0;mvn clean install
+: 1749441142:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749441900:0;ls
+: 1749441902:0;cd service
+: 1749441904:0;cd auth
+: 1749441908:0;cd authentication-service
+: 1749441908:0;ls
+: 1749441912:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749442940:0;mvn clean 
+: 1749442953:0;mvn clean test
+: 1749443070:0;git pull origin 
+: 1749443077:0;git pull
+: 1749443096:0;git status
+: 1749443105:0;git push
+: 1749443111:0;[200~java.lang.IllegalArgumentException: headers cannot be empty
+: 1749443114:0;ls
+: 1749443117:0;git push
+: 1749443174:0;git pull origin 
+: 1749443190:0;git pull
+: 1749443228:0;git pull origin feature/notification-service/issu-157
+: 1749443233:0;git pull origin feature/notification-service/issue-157
+: 1749443238:0;git push
+: 1749443254:0;git push --set-upstream origin feature/authentication-service/issue-158
+: 1749443341:0;git checkout -b feature/auth-service/issue-158
+: 1749443354:0;git pull origin 
+: 1749443604:0;ls
+: 1749443605:0;cd ..
+: 1749443608:0;cd .
+: 1749443610:0;cd ..
+: 1749443610:0;ls
+: 1749443613:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749451941:0;cd service
+: 1749451943:0;cd authentication-service
+: 1749451946:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749452082:0;cd authentication-service
+: 1749452085:0;ls
+: 1749452087:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749455329:0;CKLEAR
+: 1749455331:0;clear
+: 1749455334:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749460020:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749460448:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749462909:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749463644:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749463655:0;git pull origin
+: 1749463658:0;git push
+: 1749463934:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749463996:0;ls
+: 1749463999:0;clear
+: 1749464002:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749467802:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749468335:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749470689:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749477973:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749478093:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749478150:0;mvn clean test
+: 1749478725:0;clear
+: 1749478729:0;mvn clean test
+: 1749479439:0;source "/home/dev-satria/.cursor-server/cli/servers/Stable-53b99ce608cba35127ae3a050c1738a959750860/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh"
+: 1749479439:0;. "/home/dev-satria/.cursor-server/cli/servers/Stable-53b99ce608cba35127ae3a050c1738a959750860/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh"
+: 1749479440:0;cd service/authentication-service && ./mvnw test -Dtest=UserControllerTest
+: 1749479445:0;mvn test -Dtest=UserControllerTest
+: 1749479710:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749479729:0;source "/home/dev-satria/.cursor-server/cli/servers/Stable-53b99ce608cba35127ae3a050c1738a959750860/server/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh"
+: 1749479743:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749480669:0;ls
+: 1749621619:0;git pull origin 
+: 1749621661:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749621894:0;cd service
+: 1749621895:0;ls
+: 1749621897:0;cd accounting-service
+: 1749621899:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749624900:0;mvn clean insta
+: 1749624904:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749629732:0;find . -type d -name target -exec rm -rf {} +
+: 1749629742:0;ls
+: 1749629743:0;cd ..
+: 1749629746:0;find . -type d -name target -exec rm -rf {} +
+: 1749629752:0;mvn clean
+: 1749632243:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749632269:0;ls
+: 1749632271:0;cd service
+: 1749632272:0;ls
+: 1749632275:0;cd organization-service
+: 1749632278:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749634218:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749635986:0;OA
+: 1749635987:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749636134:0;mvn clean
+: 1749636140:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749636906:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749642678:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749642706:0;ls
+: 1749642708:0;cd service
+: 1749642709:0;cd organization-service
+: 1749642711:0;cd //
+: 1749642713:0;ls
+: 1749642717:0;cd !
+: 1749642718:0;cd ~
+: 1749642720:0;ls
+: 1749642721:0;cd new_omni
+: 1749642723:0;cd ser
+: 1749642725:0;cd service
+: 1749642726:0;l;s
+: 1749642727:0;ls
+: 1749642730:0;cd human-resource-service
+: 1749642734:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749642775:0;cd ..
+: 1749642784:0;ls
+: 1749642786:0;cd service
+: 1749642788:0;cd human-resource-service
+: 1749642792:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749643246:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749643314:0;mvn clean install -s .m2/settings.xml -DSkipTests=true
+: 1749648416:0;ls
+: 1749648419:0;cd service
+: 1749648520:0;cd partner-service
+: 1749648523:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749727737:0;mvn clean install -s .m2/settings.xml -DSkipTests=true
+: 1749730147:0;git push --tag
+: 1749785985:0;mvn clean install -s .m2/settings.xml -DSkipTests=true
+: 1749786055:0;cd legacy
+: 1749786058:0;cd accounting-service
+: 1749786060:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749810066:0;ls
+: 1749810072:0;mvn clean install -s .m2/settings.xml -DSkipTests=true
+: 1749810078:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749810106:0;cd service
+: 1749810108:0;cd accounting-service
+: 1749810111:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749821834:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749821956:0;ls
+: 1749821963:0;cd service
+: 1749821965:0;cd accounting-service
+: 1749821968:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749822725:0;ls
+: 1749822731:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749822769:0;cd ..
+: 1749822771:0;ls
+: 1749822774:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749822838:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749826639:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1749826965:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749887753:0;ls
+: 1749888186:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1749888192:0;cd service
+: 1749888204:0;cd accounting-service
+: 1749888207:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1749888264:0;ls
+: 1749888683:0;# Remove application support files\
+rm -rf ~/Library/Application\ Support/Microsoft\ Edge\
+\
+# Remove caches\
+rm -rf ~/Library/Caches/Microsoft\ Edge\
+rm -rf ~/Library/Caches/Microsoft.Edge.SoftwareUpdate\
+\
+# Remove preferences\
+rm -rf ~/Library/Preferences/com.microsoft.edgemac.plist\
+\
+# Remove saved application state\
+rm -rf ~/Library/Saved\ Application\ State/com.microsoft.edgemac.savedState\
+\
+# Remove cookies and web data\
+rm -rf ~/Library/WebKit/com.microsoft.edgemac
+: 1749888835:0;ls
+: 1749888844:0;cd ..
+: 1749888844:0;ls
+: 1750044275:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750044388:0;git push
+: 1750044397:0;git push --set-upstream origin feature/accounting-service/issue-166
+: 1750044520:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750060829:0;cd service
+: 1750060830:0;cd accounting-service
+: 1750060833:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750060867:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750061090:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750061113:0;ls
+: 1750061290:18;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750066624:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750066680:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750069906:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750069916:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750079052:0;clear
+: 1750079055:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750079163:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750141032:0;mvn clean install
+: 1750141036:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750141294:0;cd service
+: 1750141304:0;cd acc
+: 1750141306:0;cd accounting-service
+: 1750141309:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750142283:0;mvn clean test
+: 1750142312:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750142344:0;mvn clean test
+: 1750142639:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750142673:0;netstat -tulnp | grep 8081
+: 1750142683:0;kill -9 204709
+: 1750142687:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750147293:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750147354:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750147403:0;clear
+: 1750147405:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750147833:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C
+: 1750147844:0;clear
+: 1750147847:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750172018:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750172277:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750172848:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750172887:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750173012:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750173021:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750174136:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750174151:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750174206:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750174234:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750176212:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750176243:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750177830:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750177959:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750179969:0;git cherry-pick 2562dc2d5ede72e0aabc51e0ee460b8ba552d945
+: 1750180079:0;git reset --hard HEAD~1 
+: 1750180112:0;git push origin feature/accounting-service/issue-168 --force
+: 1750224778:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750225065:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750225082:0;ls
+: 1750225083:0;cd service
+: 1750225084:0;cd accounting-service
+: 1750225089:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750227519:0;mvn test -Dtest=ChequeClearanceEndpointImplTest
+: 1750227532:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750227624:0;mvn test -Dtest=ChequeClearanceEndpointImplTest
+: 1750230238:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750230244:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750230280:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750232922:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750232957:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750234337:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750234723:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750238806:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750238967:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750240718:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750240753:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750246521:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750247168:0;mvn clena test
+: 1750247172:0;mvn clean test
+: 1750247205:0;clear
+: 1750247208:0;mvn clean test
+: 1750247597:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750247737:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750247945:0;git push --force
+: 1750248750:0;clear
+: 1750248752:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750248773:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750248827:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750301860:0;cd service
+: 1750301862:0;cd accounting-service
+: 1750301869:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750302447:0;cd service
+: 1750302450:0;cd accounting-service
+: 1750302456:0;mvn test -Dtest=FinancialEndpointImplTest
+: 1750307756:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750308396:0;ls
+: 1750308397:0;clear
+: 1750308399:0;mvn clean in
+: 1750308403:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750308479:0;cd service
+: 1750308480:0;cd accounting-service
+: 1750308484:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750312802:0;mvn clean test
+: 1750313284:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750316021:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750316026:0;cd service
+: 1750316027:0;cd accounting-service
+: 1750316032:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750320519:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750322353:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750323516:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750323601:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750325910:0;clear
+: 1750325914:0;mvn clean ins
+: 1750325919:0;mvn clean install
+: 1750325923:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750330039:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750392389:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750392507:0;ls
+: 1750392509:0;clear
+: 1750392512:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750392597:0;java --version
+: 1750392615:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750392894:0;ls
+: 1750392898:0;java --version
+: 1750392914:0;$JAVA_HOME
+: 1750392922:0;echo $JAVA_HOME
+: 1750392926:0;ls
+: 1750392993:0;which java
+: 1750392998:0;ls
+: 1750393003:0;java --version
+: 1750393081:0;ls
+: 1750393087:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750393102:0;ls
+: 1750393104:0;cd omnichannel
+: 1750393105:0;ls
+: 1750393109:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750393123:0;java --version
+: 1750400732:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750402462:0;ls
+: 1750402466:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750402521:0;cd service
+: 1750402524:0;cd accounting-service
+: 1750403101:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750403281:0;git reset --hard HEAD~3
+: 1750403356:0;git rebase -i HEAD~3
+: 1750403405:0;git push --force
+: 1750403711:0;mvn pmd:cpd-check -T 2C
+: 1750403734:0;clear
+: 1750403737:0;mvn pmd:cpd-check -T 2C
+: 1750403820:0;cat /home/dev-satria/new_omni/service/accounting-service/target/cpd.xml
+: 1750404291:0;ls
+: 1750404479:0;clear
+: 1750405879:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750405863:9;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750406164:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750407572:0;git rebase -i HEAD~2
+: 1750407597:0;git push --force
+: 1750407720:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750408798:0;git rebase -i HEAD~2
+: 1750408813:0;git push --force
+: 1750409665:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750409803:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750409911:0;git pull origin feature/accounting-service/issue-180
+: 1750409963:0;git config pull.rebase true
+: 1750409966:0;git pull origin feature/accounting-service/issue-180
+: 1750410277:0;git pull 
+: 1750410279:0;git push
+: 1750410347:0;git cherry-pick e3a74d4fe677f8804fb94c705f57c54f74013423
+: 1750410408:0;git branch -D feature/accounting-service/issue-181
+: 1750410487:0;git push origin --delete feature/accounting-service/issue-181
+: 1750410551:0;git cherry-pick 9fffeafd3d0453918b9972bec5e464ecdd5fd546
+: 1750410568:0;git branch -D feature/accounting-service/issues-181
+: 1750410574:0;git push origin --delete feature/accounting-service/issues-181
+: 1750411035:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750411689:0;git rebase -i HEAD~2
+: 1750411722:0;git push --force
+: 1750411742:0;git pull origin
+: 1750416752:0;mvn clean install -s .m2/settings.xml -DSkipTests=true -T 4C -U
+: 1750416931:0;mvn clean test
+: 1750417112:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750417155:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=false
+: 1750417913:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750419919:0;ls
+: 1750419924:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=false
+: 1750420626:0;ls
+: 1750420640:0;git rebase -i HEAD~3
+: 1750420674:0;git push --force
+: 1750426713:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=false
+: 1750426850:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750428286:0;git rebase -i HEAD~2
+: 1750428317:0;git push --force
+: 1750652896:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750652908:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=false
+: 1750653018:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750653931:0;cd service
+: 1750653932:0;cd accounting-service
+: 1750653935:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750654144:0;ls
+: 1750654280:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750654372:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750655086:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750655187:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750660110:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750660371:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750673443:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750673470:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750673900:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750673935:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750674268:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750674517:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750676332:0;ls
+: 1750676332:0;s
+: 1750676334:0;ls
+: 1750676335:0;clear
+: 1750676336:0;ls
+: 1750676342:0;mkdir aori
+: 1750676343:0;ls
+: 1750676347:0;cd aori
+: 1750676348:0;ls
+: 1750676353:0;git clone https://kf-gitlab.buaya.dev/peentar/aori/omnichannel/-/issues/1
+: 1750676361:0;git clone https://kf-gitlab.buaya.dev/kf/software-engineering/micro-services/kf-current-stock.git
+: 1750676366:0;ls
+: 1750676405:0;git clone https://kf-gitlab.buaya.dev/peentar/aori/omnichannel.git
+: 1750676409:0;ls
+: 1750676432:0;java --version
+: 1750676581:0;mvn clean install
+: 1750677644:0;ls
+: 1750677666:0;git clone https://kf-gitlab.buaya.dev/kf/software-engineering/micro-services/kf-shared-module.gitaasasassaasascleam\a
+: 1750677671:0;clean
+: 1750677674:0;clear
+: 1750677676:0;ls
+: 1750677680:0;git clone https://kf-gitlab.buaya.dev/kf/software-engineering/micro-services/kf-shared-module.git
+: 1750677683:0;lw
+: 1750677684:0;ls
+: 1750677695:0;cd kf-shared-module
+: 1750677697:0;windsurf .
+: 1750677699:0;code .
+: 1750677808:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750678274:0;mvn clean install -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750678584:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750678724:0;mvn clean install
+: 1750678837:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750678854:0;java --version
+: 1750678957:0;ls
+: 1750678970:0;om ini kan aku punya server tapi gak bisa akses sudo, nah di sudo java nya itu versi 17 dan aku pengen 
+: 1750678971:0;clear
+: 1750678985:0;om ini kan aku punya server tapi gak bisa akses sudo, nah di sudo java nya itu versi 17 dan aku pengen run di java 21 gimana om bias gak install java cuma di local ssh gue om
+: 1750678986:0;clear
+: 1750678987:0;wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.0+35/OpenJDK21U-jdk_x64_linux_hotspot_21.0.0_35.tar.gz
+: 1750678989:0;ls
+: 1750679001:0;cd ..
+: 1750679001:0;ls
+: 1750679003:0;cd ..
+: 1750679003:0;ls
+: 1750679006:0;wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.0+35/OpenJDK21U-jdk_x64_linux_hotspot_21.0.0_35.tar.gz
+: 1750679146:0;ls
+: 1750679151:0;mkdir java
+: 1750679152:0;ls
+: 1750679155:0;cd java
+: 1750679156:0;ls
+: 1750679875:0;wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.3%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.3_9.tar.gz
+: 1750679885:0;ls
+: 1750679913:0;tar -xzf OpenJDK21U-jdk_x64_linux_hotspot_21.0.3_9.tar.gz
+: 1750679922:0;ls
+: 1750679964:0;vim ~/.zshrc
+: 1750679983:0;source ~/.zshrc
+: 1750679988:0;cd ..
+: 1750679989:0;ls
+: 1750679991:0;java --version
+: 1750679999:0;ls
+: 1750680004:0;which java
+: 1750680019:0;java --version
+: 1750680035:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750686690:0;clear
+: 1750686692:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750686745:0;clear
+: 1750686747:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750686802:0;clear
+: 1750686803:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750686961:0;cd service
+: 1750686965:0;cd currentstock-service
+: 1750686966:0;ls
+: 1750686971:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750687559:0;git pull origin
+: 1750687564:0;git pull
+: 1750687580:0;git branch --set-upstream-to=origin/<branch> feature/issue-1
+: 1750687589:0;git pull origin develop
+: 1750687592:0;git push
+: 1750687605:0;git push --set-upstream origin feature/issue-1
+: 1750687626:0;git pull
+: 1750687661:0;git pull origin feature/issue-1
+: 1750687666:0;git config pull.rebase true
+: 1750687667:0;git pull origin feature/issue-1
+: 1750687698:0;git rebase --abort
+: 1750687749:0;git branch -m feature/issue-1 feature/aori/issue-1
+: 1750687761:0;git status
+: 1750687767:0;git push
+: 1750687776:0;git push --set-upstream origin feature/aori/issue-1
+: 1750734900:0;ls
+: 1750734942:0;git clone https://kf-gitlab.buaya.dev/peentar/infra/infra-k8s-app-manifest.git
+: 1750734944:0;ls
+: 1750734946:0;cd infra-k8s-app-manifest
+: 1750734946:0;ls
+: 1750738587:0;git rebase -i HEAD~2
+: 1750738606:0;git push --force
+: 1750739311:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750739317:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750743413:0;cd ..
+: 1750743415:0;ls
+: 1750743426:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750743965:0;ls
+: 1750743970:0;cd library
+: 1750743973:0;mvn clean install -T 4C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750743978:0;cd ..
+: 1750743989:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750744135:0;java --versio
+: 1750744137:0;java --version
+: 1750744351:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1750744452:0;cd service
+: 1750744458:0;cd currentstock-service
+: 1750744461:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1750744917:0;clear
+: 1750744919:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751264033:0;y
+: 1751264034:0;ls
+: 1751264036:0;cd aori
+: 1751264036:0;ls
+: 1751264051:0;cd ..
+: 1751264051:0;ls
+: 1751264419:0;git rebase -i HEAD~2
+: 1751264434:0;git push --force
+: 1751267451:0;git pull origin 
+: 1751267459:0;git pull
+: 1751267468:0;git status
+: 1751267478:0;git pull
+: 1751267486:0;git status
+: 1751268245:0;ls
+: 1751268251:0;git clone https://kf-gitlab.buaya.dev/peentar/infra/infra-k8s-platform-manifest.git
+: 1751268255:0;ls
+: 1751268307:0;git pull origin
+: 1751268330:0;git status
+: 1751268353:0;rm -rf infra-k8s-platform-manifest
+: 1751268358:0;git clone https://kf-gitlab.buaya.dev/peentar/infra/infra-k8s-platform-manifest.git
+: 1751268363:0;ls
+: 1751268403:0;git status
+: 1751271178:0;git rebase -i HEAD~3
+: 1751271204:0;git push --force
+: 1751271292:0;git cherry-pick 4c9511ca7c17094ecccac33f56ea09739d28e8c9
+: 1751271300:0;git push --force
+: 1751271647:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751271855:0;ls
+: 1751271862:0;cd aori
+: 1751271863:0;ls
+: 1751271882:0;git clone https://kf-gitlab.buaya.dev/peentar/aori/omnichannel.git new_omni
+: 1751271887:0;ls
+: 1751272104:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751272182:0;clear
+: 1751272184:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751272263:0;clear
+: 1751272266:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751272323:0;cd service
+: 1751272329:0;cd currentstock-service
+: 1751272332:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751274293:0;ls
+: 1751274294:0;cd ..
+: 1751274294:0;ls
+: 1751274297:0;curl -L --output gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64\
+
+: 1751274342:0;ls
+: 1751274349:0;chmod +x gitlab-runner\
+
+: 1751274441:0;mkdir -p ~/bin\
+mv gitlab-runner ~/bin/\
+chmod +x ~/bin/gitlab-runner\
+
+: 1751274442:0;ls
+: 1751274447:0;vim ~/.zshrc
+: 1751274465:0;source ~/.zshrc
+: 1751274473:0;gitlab-runner --version
+: 1751274480:0;ls
+: 1751274482:0;cd aori
+: 1751274483:0;ls
+: 1751274484:0;cd omnichannel
+: 1751274485:0;ls
+: 1751274536:0;gitlab-runner exec shell .gitlab-ci.yml
+: 1751274554:0;gitlab-runner exec shell
+: 1751274559:0;gitlab-runner exec
+: 1751274561:0;gitlab-runner 
+: 1751274566:0;ls -a
+: 1751274681:0;gitlab-runner exec shell build-app\
+
+: 1751274688:0;ls
+: 1751274690:0;cd ..
+: 1751274690:0;ls
+: 1751274693:0;cd omnichannel
+: 1751274743:0;ls
+: 1751274745:0;cd ..
+: 1751274745:0;ls
+: 1751274748:0;cd current-stock-service
+: 1751274749:0;ls
+: 1751274754:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751274805:0;ls
+: 1751274808:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751274839:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751275320:0;ls
+: 1751275347:0;git branch -m test-aori/current-stock test-aori/current-stock-service
+: 1751275491:0;ls
+: 1751275492:0;cd ..
+: 1751275492:0;ls
+: 1751275494:0;cd ..
+: 1751275494:0;ls
+: 1751275499:0;cd aori
+: 1751275500:0;ls
+: 1751275501:0;cd ..
+: 1751275502:0;ls
+: 1751275506:0;cd infra-k8s-app-manifest
+: 1751275507:0;ls
+: 1751275509:0;cd clusters
+: 1751275509:0;ls
+: 1751275511:0;cd default
+: 1751275512:0;ls
+: 1751275513:0;cd aori
+: 1751275514:0;ls
+: 1751275517:0;cd app
+: 1751275518:0;ls
+: 1751275520:0;cd dev
+: 1751275521:0;ls
+: 1751275525:0;pwd
+: 1751275720:0;ls
+: 1751275720:0;c d..
+: 1751275724:0;cd ~
+: 1751275724:0;ls
+: 1751275729:0;git clone https://kf-gitlab.buaya.dev/peentar/infra/peentar-config
+: 1751275732:0;ls
+: 1751275921:0;git staus
+: 1751275926:0;git status
+: 1751275952:0;git push origin -u test-aori/current-stock-service
+: 1751276037:0;ls
+: 1751276039:0;git statuas
+: 1751276053:0;ls
+: 1751276073:0;git push origin --delete test-aori/current-stock
+: 1751276079:0;git status
+: 1751277035:0;ls
+: 1751277038:0;cd service
+: 1751277039:0;ls
+: 1751277055:0;cd current-stock-service
+: 1751277056:0;ls
+: 1751277072:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751277094:0;mvn clean install package
+: 1751277236:0;ls
+: 1751278273:0;mvn clean package -Dmaven.test.skip=true -T 2C -s .m2/settings.xml -U -pl service/current-stock-service -am
+: 1751280376:0;ls
+: 1751280385:0;mvn clean package -Dmaven.test.skip=true -T 2C -U -pl service/order-service -am
+: 1751280501:0;mvn clean package -Dmaven.test.skip=true -T 2C -s .m2/settings.xml -U -pl service/current-stock-service -am
+: 1751282649:0;git pull
+: 1751282663:0;git pull origin main
+: 1751282732:0;git status
+: 1751282734:0;gut push
+: 1751282744:0;git pull origin main
+: 1751282752:0;git push
+: 1751284958:0;git pull oriigin main
+: 1751284961:0;git pull origin main
+: 1751285096:0;git push
+: 1751289048:0;git pull origin master
+: 1751289074:0;git config pull.rebase true
+: 1751289081:0;git pull origin master
+: 1751289124:0;git push
+: 1751290174:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751290181:0;cd service
+: 1751290184:0;ls
+: 1751290186:0;cd current-stock-service
+: 1751290186:0;ls
+: 1751290190:0;cd ..
+: 1751290193:0;cd current-stock-service
+: 1751290194:0;ls
+: 1751290200:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751291839:0;ls
+: 1751291843:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751291870:0;cd service
+: 1751291899:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751291927:0;ls
+: 1751291933:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751291986:0;mvn clean install -T 2C -U -s .m2/setting.xml  -Dmaven.test.skip=true
+: 1751292011:0;cd service
+: 1751292016:0;cd order-service
+: 1751292019:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751292098:0;ls
+: 1751292100:0;cd ..
+: 1751292101:0;ls
+: 1751292102:0;cd ..
+: 1751292103:0;ls
+: 1751292109:0;mvn clean install -T 2C -U -s .m2/setting.xml  -Dmaven.test.skip=true
+: 1751292120:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751292181:0;cd service
+: 1751292185:0;cd current-stock-service
+: 1751292189:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751292860:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751292878:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751293434:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751293454:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751293620:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751293694:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751294106:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751294125:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751294339:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751294378:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751330929:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751331162:0;cd service
+: 1751331168:0;cd current-stock-service
+: 1751331177:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751331368:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751331388:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751333927:0;git pull origin master
+: 1751333931:0;git push
+: 1751334700:0;git pull origin master
+: 1751334716:0;git pull origin main
+: 1751335084:0;git push
+: 1751335122:0;git pull origin main
+: 1751335127:0;git pull origin master
+: 1751335134:0;git push
+: 1751342447:0;git pull origin main
+: 1751342966:0;git push
+: 1751343844:0;git pull origin main
+: 1751344306:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751344329:0;cd ser
+: 1751344332:0;cd service
+: 1751344333:0;cd current-stock-service
+: 1751344338:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751346268:0;git pull origin main
+: 1751346281:0;git config pull.rebase true
+: 1751346284:0;git pull origin main
+: 1751346291:0;git push
+: 1751429842:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751430395:0;git pull origin develop
+: 1751431214:0;ls
+: 1751431242:0;cd ..
+: 1751431242:0;ls
+: 1751431251:0;git clone https://kf-gitlab.buaya.dev/kf/software-engineering/micro-services/kf-mobile-api.git
+: 1751441601:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751441690:0;git clone https://kf-gitlab.buaya.dev/kf/software-engineering/micro-services/kf-mobile-api.git
+: 1751441711:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751442297:0;git status
+: 1751444929:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751513971:0;cd ..
+: 1751513972:0;ls
+: 1751513988:0;cd ~
+: 1751513989:0;ls
+: 1751515888:0;git pull origin
+: 1751516549:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751522674:0;cd service
+: 1751522677:0;cd ma-master-item
+: 1751522678:0;ls
+: 1751522681:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751522772:0;ls
+: 1751522801:0;git pull origin
+: 1751523264:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751524733:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751524765:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751525100:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751525124:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751525484:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751525511:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751525657:0;cd service
+: 1751525659:0;cd ma-master-item
+: 1751525673:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751526090:0;clear
+: 1751526092:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751526597:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751526988:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751527146:0;clear
+: 1751527150:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751527618:0;clear
+: 1751527621:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751527966:0;clear
+: 1751527967:0;grep -R "PostgreSQL82Dialect" .\
+
+: 1751528095:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751528154:0;clear
+: 1751528157:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751528164:0;ls
+: 1751528172:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751528177:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751528636:0;clear
+: 1751528643:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751528740:0;ls
+: 1751528744:0;cd ..
+: 1751528745:0;ls
+: 1751528790:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751528812:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751529103:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751529133:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751529615:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751529638:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751530371:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751530395:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751530595:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751530627:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751531098:0;clear
+: 1751531104:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751531137:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751531614:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751532435:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751532482:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751532507:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751532630:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751532668:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751533415:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751533617:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751534837:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751534858:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751535081:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751535351:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751535623:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751535696:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751536258:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751536518:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751536611:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751536643:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751537499:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751537529:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751538852:0;ls
+: 1751538866:0;git rebase -i HEAD~11
+: 1751538962:0;git push --force
+: 1751539127:0;git cherry-pick 146904a46241bb70a59e6ebe2bc0ababf03023d7
+: 1751539137:0;git push
+: 1751539146:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751539227:0;ls
+: 1751539229:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751540133:0;mvn clean package -Dmaven.test.skip=true -T 2C -s .m2/settings.xml -U -pl service/current-stock-service -am
+: 1751540148:0;mvn clean package -Dmaven.test.skip=true -T 2C -s .m2/settings.xml -U -pl service/ma-master-item  -am
+: 1751540270:0;git pull origin master
+: 1751540541:0;git pull origin
+: 1751542117:0;git pull origin master
+: 1751542137:0;git pull origin min
+: 1751542140:0;git pull origin main
+: 1751620855:0;ls
+: 1751621489:0;ssh main.aori.faridsatria.coder
+: 1751623294:0;ssh main.aori.faridsatria.coder\
+
+: 1751623322:0;ssh root@main.aori.faridsatria.coder\
+
+: 1751623337:0;ssh main.aori.faridsatria.coder@root\
+
+: 1751626209:0;ls
+: 1751626211:0;ls -a
+: 1751626225:0;cd oh-my-zsh
+: 1751626227:0;ls
+: 1751626231:0;cd .oh-my-zsh
+: 1751626232:0;ls
+: 1751626240:0;cd plugins
+: 1751626242:0;ls
+: 1751626254:0;cd ..
+: 1751626254:0;ls
+: 1751626258:0;cd ..
+: 1751626258:0;ls
+: 1751626559:0;cd ..
+: 1751626559:0;ls
+: 1751628954:0;cd .ssh
+: 1751628955:0;ls
+: 1751629011:0;vim authorized_keys
+: 1751631341:0;ls
+: 1751631464:0;echo "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn\
+NhAAAAAwEAAQAAAgEA1rmpyKjsCfRtI9U4r81dt4VzKRo0B0twIhzAYPTJ6hn4MbmYdgnI\
++sbnCeFrIDtGJVEPkkI6OR+LWaB8qd4Pn+oJUDAakZaRlCKed3kbgiYfWKruukkCSL6iAm\
+wYP4CxSLJYYWRvPmStNThWFYvgkhayuNENS0eaj2Xls0ds4DXZl17Y1ZlpiLmIsz10ZLEz\
+6y0xiMnsJ87b7oipr92aqFMNZMujQq6NWNiS6dAUK1g6psGkItDFdXuZXJimXGdp54MaRW\
+iI0EtWkalPqixdWHmDM5+p7793ADhoiwwHo3majbsdL6p88gqC0kW+VpQpeb7ghN17GgjP\
+wW5brr49VG5cDpnkOVWjs48nHk36GcslOUXbUrGNX2HioVvzf9MtQ6gNYvmpjJAzmaGsoG\
+fHi+dAqaOH/hV4g8o7QZDXdZhaAWGWIyfbiHYGbsEwaLcPQIvHvwkJgE8Pigpz7Dy4Q/YR\
+MYO4bvi49ep7ycwT7NiG74I/u5K3bi6L1Fj+0oyu7Iy1Rruml5jE9YnBZWy6zUySDv7bcX\
+K/5u3pBMhbKd3cQifwFSzpQo24FvH0UlgkG6djrKnsAvVKp194roGjJEOx/4FbtqW5QCg5\
+fWff19FoYLhJKfZz9wcc04nJGvJE5kLQuKTnA5w6E/ItEgR0q2nEI7dL+OaoyQiJeQO11a\
+0AAAdQFRaa8hUWmvIAAAAHc3NoLXJzYQAAAgEA1rmpyKjsCfRtI9U4r81dt4VzKRo0B0tw\
+IhzAYPTJ6hn4MbmYdgnI+sbnCeFrIDtGJVEPkkI6OR+LWaB8qd4Pn+oJUDAakZaRlCKed3\
+kbgiYfWKruukkCSL6iAmwYP4CxSLJYYWRvPmStNThWFYvgkhayuNENS0eaj2Xls0ds4DXZ\
+l17Y1ZlpiLmIsz10ZLEz6y0xiMnsJ87b7oipr92aqFMNZMujQq6NWNiS6dAUK1g6psGkIt\
+DFdXuZXJimXGdp54MaRWiI0EtWkalPqixdWHmDM5+p7793ADhoiwwHo3majbsdL6p88gqC\
+0kW+VpQpeb7ghN17GgjPwW5brr49VG5cDpnkOVWjs48nHk36GcslOUXbUrGNX2HioVvzf9\
+MtQ6gNYvmpjJAzmaGsoGfHi+dAqaOH/hV4g8o7QZDXdZhaAWGWIyfbiHYGbsEwaLcPQIvH\
+vwkJgE8Pigpz7Dy4Q/YRMYO4bvi49ep7ycwT7NiG74I/u5K3bi6L1Fj+0oyu7Iy1Rruml5\
+jE9YnBZWy6zUySDv7bcXK/5u3pBMhbKd3cQifwFSzpQo24FvH0UlgkG6djrKnsAvVKp194\
+roGjJEOx/4FbtqW5QCg5fWff19FoYLhJKfZz9wcc04nJGvJE5kLQuKTnA5w6E/ItEgR0q2\
+nEI7dL+OaoyQiJeQO11a0AAAADAQABAAACAC0WkGXPvry6ZB6Fm+EihP7P2WY0l98+Qn4P\
+PoA9dpafPGQonjCPDnJGSOZkvKtodurIEjZ6jKJJEuhPkE3VEL/aE3mQmEug69HI0TCyMA\
+oMukFSp01bnkyrJvbOPus6uT9UH8XXoppd5pcJzN26YP4cIQw47Ys0rmpVEb4rDdwowpeL\
+9YkorSXmG6PTkDjCku3bsA6So/GZ+MmmTcddh6e3xNS5A/+xCoIw++x34nxViv9QIwiigQ\
+wR15q/fRNjLbRM7bvMXwop/7QXcuB/b1xwK5IwAS2ULUdREPa9oG79zmvbch37tT/X4C+K\
+MJUaiHkFkTylCz/kwMdTxpGzZcoNrIEpqeSZt7VmfJpcpeSHUVT+OxtmEo5Vfa0LJiv67p\
+lBp0wrwq7dp6ORwdHaHl/B02fBUF7Hu3kvjMCsaFoIMrbFGsdG3vf0Bgjt3L/uW1f7aJQa\
+M68GsLHX1yo1OgHQQN05Bzxifa82sSItjgIBmvhaBiQEqZg506MuXX4G0BH6vX3/A8ghVK\
+ALShLxQQYK1Q2uryCQHwIvsbPr8CpyBtwp+S4FyjdIxJoUR/x0pFfWImSgcYtLXZDzEnv8\
+W9X+JLChyC1d44qaNVsbNgPL8ft1jwuM9ySvSMAHdktLDA76mWKo0GLPTEgTV5WIOy+ITR\
+J5be1x+oxL6X7Ug17LAAABACkdx7rVIx0G1HqY5RTMUUi+sGNCvyTOOnFFxHmi2ajU8kr/\
+t77C13/KrH61Spl9uAxs4La5tX3M5oDDurB5oqPzAyvHt4SJ8w49uQtcdyT5E5lncs5COx\
+kZY/7/oArPQtNQiap/fE/zNlcOI34DkycYeTk+iAbZvEuywrvGX3OItnTePTtVuFVE46ZS\
+M01bpHcjLdFBVV3HR+gYQAe0dNs0tUP5TKZVz0tcBBnqmvAmLm/BEbY7+Z+paYwJeye2nc\
+KXPijFljQeRkKHS30BTDGuqBqfaedQpTiEuTEUb0fZL1shtJVDE2+s1pzSfbyiUMdKJXfn\
+1FpsPwxBX6pJ1lsAAAEBAPtdQb1geloYRO24j6OBsxuhNII4fGeKlWWntD4zW1JCtyOM6t\
+a8m4N073OP8YTj1k1Cvq/RW3ql3sc4YlRocQdBqX/6qMjQ0jMDm8Ov/SZVOciWKYTGvweI\
+PR6sw3HZVGBN+Ikklc0J9moMcccOfeVEZdkwsPSdjSuFIZIs2qfvrJPF+01iLPJ6/YyR0L\
+fAlnMXPfqY1oRIyTdTSWB2AD5CBHvv5qOxz6KNbyo4tz/mte1GeF/wWwvVpB4SPGXJBg7u\
+HNCUTcC965JYBYtrkt1j7F3x4bUkyk9jX4CO6ymdMfQV3ZiHiRd8nzRhHHgUqtdDdcsdEc\
+U9VA7tkEgHj18AAAEBANqvbQbfLEogLTE2I2rHjU9e4cpEHC9kMa9KH7pX60LphbHtreM7\
+nnnLE+29Xt5FluKHn0ghOfjwJl1bIya5U793g9CTY1kE8st6562jIvKxOJgeQXb7gxMXyV\
+NNKZXIxSXH4gqdH5PNGkONKC3xi8qfd8rsyxMeaSgVy1Kf/pDzIu/ufYcIDsTlEgZkV8lb\
+cdTyv0/T2/PNjCTYPls8BTlNDhlI4+S/Eef/Ovwk/p3IUnlFNrEYHQ3pWQBuhwonqnE/ip\
+Rp2rkBwf39uEC9GTW52bfDY6zY8WLN/nkKqVh5iDnGzZOJ7W7L7AKDB6lTcMiWfF/djlBm\
+mxexfjIcUnMAAAAXZmFyaWRzYXRyaWEyNEBnbWFpbC5jb20BAgME" >> authorized_keys
+: 1751631465:0;ls
+: 1751631468:0;vim authorized_keys
+: 1751631475:0;ls
+: 1751631476:0;cd ..
+: 1751631477:0;ls
+: 1751633673:0;ls -a
+: 1751633693:0;ls
+: 1751633694:0;cd ..
+: 1751634269:0;ls
+: 1751634276:0;vim ~/.zshrc
+: 1751634521:0;ls
+: 1751687508:0;ls -a
+: 1751687688:0;ls
+: 1751687734:0;mvn clean package -Dmaven.test.skip=true -T 2C -s .m2/settings.xml -U -pl service/ma-master-item  -am
+: 1751687741:0;sudo apt install mvn
+: 1751687820:0;sudo apt-get install maven
+: 1751688264:0;ls
+: 1751688271:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751688338:0;java --version
+: 1751688344:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751688467:0;java -version
+: 1751688471:0;sudo apt update\
+sudo apt install openjdk-21-jdk
+: 1751688524:0;sudo update-alternatives --config java
+: 1751688538:0;java -version
+: 1751688544:0;export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64  # Path might vary\
+export PATH=$JAVA_HOME/bin:$PATH
+: 1751688553:0;mvn clean install -T 2C -U -s .m2/settings.xml  -Dmaven.test.skip=true
+: 1751688578:0;vim ~/.zshrc
+: 1751688698:0;ls
+: 1751688722:0;cd service/ma-master-item
+: 1751688722:0;ls
+: 1751688729:0;mvn clean spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
+: 1751697493:0;git pull oriign
+: 1751697495:0;git pull
+: 1751697530:0;git config --global credential.helper store
+: 1751697536:0;git pull
+: 1751697543:0;git config --global credential.helper store
+: 1751697545:0;git pull
+: 1751869099:0;ls
+: 1751869164:0;git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+: 1751869168:0;git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+: 1751869246:0;sed -i 's/^plugins=(git)/plugins=(\n    git\n    zsh-autosuggestions\n    zsh-syntax-highlighting\n)/' ~/.zshrc || echo "plugins=(\n    git\n    zsh-autosuggestions\n    zsh-syntax-highlighting\n)" >> ~/.zshrc
+: 1751869276:0;source ~/.zshrc
+: 1751869286:0;hto
+: 1751869288:0;htop
+: 1751869557:0;ls
+: 1751869559:0;cd config
+: 1751869559:0;ls
+: 1751869561:0;cd linux
+: 1751869562:0;ls
+: 1751869565:0;cd buana
+: 1751869565:0;ls
+: 1751869569:0;cd linux-dev-tool
+: 1751869570:0;ls
+: 1751869591:0;chmod +x install.sh
+: 1751869595:0;./install.sh
+: 1751869611:0;ldt
+: 1751869614:0;ls
+: 1751869616:0;ldt
+: 1751869695:0;./install.sh
+: 1751869699:0;ldt
+: 1751869807:0;./linux-dev-tool
+: 1751869830:0;ls
+: 1751870141:0;./linux-dev-tool
+: 1751870171:0;ls
+: 1751870549:0;./linux-dev-tool
+: 1751870597:0;source ~/.zshrc
+: 1751870600:0;ls
+: 1751870744:0;source ~/.zshrc
+: 1751870750:0;./linux-dev-tool

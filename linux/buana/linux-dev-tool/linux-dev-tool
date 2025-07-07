@@ -151,9 +151,9 @@ show_header() {
 # Fungsi untuk menampilkan menu aksi
 show_action_menu() {
     clear
-    echo -e "${COLOR_BOLD}========================================${COLOR_RESET}"
+    echo -e "${COLOR_BLUE}========================================${COLOR_RESET}"
     echo -e "  ${COLOR_BOLD}Linux Development Environment Setup${COLOR_RESET}"
-    echo -e "  ${COLOR_BLUE}Versi: ${VERSION}${COLOR_RESET}"
+    echo -e "  ${COLOR_BLUE}Versi: ${COLOR_YELLOW}$VERSION${COLOR_RESET}"
     echo -e "  ${COLOR_GREEN}Plugin Tersedia: ${#PLUGINS[@]}${COLOR_RESET}"
     echo -e "${COLOR_BOLD}========================================${COLOR_RESET}\n"
     
@@ -161,7 +161,9 @@ show_action_menu() {
     echo -e "${COLOR_GREEN}1. Install Plugin${COLOR_RESET}"
     echo -e "${COLOR_YELLOW}2. Uninstall Plugin${COLOR_RESET}"
     echo -e "${COLOR_BLUE}3. Cek Status Plugin${COLOR_RESET}"
-    echo -e "${COLOR_RED}4. Keluar${COLOR_RESET}\n"
+    echo -e "${COLOR_CYAN}4. Backup Command Suggestions${COLOR_RESET}"
+    echo -e "${COLOR_CYAN}5. Restore Command Suggestions${COLOR_RESET}"
+    echo -e "${COLOR_RED}6. Keluar${COLOR_RESET}\n"
 }
 
 # Fungsi untuk menampilkan daftar plugin
@@ -193,8 +195,9 @@ show_plugin_list() {
     
     # Tampilkan opsi tambahan
     local last_option=$((${#PLUGINS[@]} + 1))
-    echo -e "${COLOR_BLUE}$((last_option)). Kembali ke Menu Utama${COLOR_RESET}"
-    echo -e "${COLOR_RED}$((last_option+1)). Keluar${COLOR_RESET}\n"
+    echo -e "${COLOR_GREEN}${last_option}. Kembali ke Menu Utama${COLOR_RESET}"
+    echo -e "${COLOR_RED}$((${#PLUGINS[@]} + 2)). Keluar${COLOR_RESET}"
+    echo -e "\n${COLOR_BOLD}========================================${COLOR_RESET}"
 }
 
 # Fungsi untuk menjalankan aksi pada plugin
@@ -347,11 +350,11 @@ main() {
         show_action_menu
         
         # Baca pilihan aksi
-        read -p "Pilih aksi [1-4]: " action_choice
+        read -p "Pilih aksi [1-6]: " action_choice
         
         # Validasi input
-        if ! [[ "$action_choice" =~ ^[1-4]$ ]]; then
-            echo -e "${COLOR_RED}Masukkan nomor antara 1-4!${COLOR_RESET}"
+        if ! [[ "$action_choice" =~ ^[1-6]$ ]]; then
+            echo -e "${COLOR_RED}Masukkan nomor antara 1-6!${COLOR_RESET}"
             sleep 1
             continue
         fi
@@ -360,7 +363,21 @@ main() {
             1) action="install" ;;
             2) action="uninstall" ;;
             3) action="status" ;;
-            4) 
+            4)
+                # Backup command suggestions
+                echo -e "${COLOR_CYAN}Membackup command suggestions...${COLOR_RESET}"
+                "$PLUGINS_DIR/ohmyzsh/install.sh" backup-suggestions
+                read -n 1 -s -r -p "Tekan tombol apa saja untuk melanjutkan..."
+                continue
+                ;;
+            5)
+                # Restore command suggestions
+                echo -e "${COLOR_CYAN}Memulihkan command suggestions...${COLOR_RESET}"
+                "$PLUGINS_DIR/ohmyzsh/install.sh" restore-suggestions
+                read -n 1 -s -r -p "Tekan tombol apa saja untuk melanjutkan..."
+                continue
+                ;;
+            6)
                 echo -e "${COLOR_BLUE}Terima kasih telah menggunakan Linux Dev Tool!${COLOR_RESET}"
                 exit 0
                 ;;
